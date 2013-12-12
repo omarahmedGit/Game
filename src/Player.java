@@ -1,7 +1,3 @@
-import java.awt.Color;
-import java.util.Stack;
-
-
 public class Player {
 	PlayerHand righthand;
 	PlayerHand lefthand;
@@ -44,8 +40,8 @@ public class Player {
 	
 	public void checkToRemovePlatesWithSameColor()
 	{
-		righthand.checkIfThreePlatesOfTheSameColorInTheRightHand();
-		lefthand.checkIfThreePlatesOfTheSameColorInTheRightHand();
+		righthand.checkIfThreePlatesOfTheSameColor();
+		lefthand.checkIfThreePlatesOfTheSameColor();
 	}
 	
 	public void incrementPlayerScore() {setScore(getScore()+1);}

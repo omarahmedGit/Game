@@ -18,7 +18,7 @@ public class PlayerHand {
 	}
 	
 	
-	public void checkIfThreePlatesOfTheSameColorInTheRightHand()
+	public void checkIfThreePlatesOfTheSameColor()
 	{
 		if(getHandSize()<3) return ;
 		Stack<Shape> temp = new Stack<Shape>();
