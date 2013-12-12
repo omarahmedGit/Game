@@ -1,44 +1,53 @@
+import java.awt.Color;
 import java.util.Stack;
 
 
 public class Player {
-	Stack<Shape> righthand;
-	Stack<Shape> lefthand;
+	PlayerHand righthand;
+	PlayerHand lefthand;
 	int posX;
 	int posY;
 	int id;
+	int score;
 	
 	public Player(int x ,int y, int ID) {
 		posX = x;
 		posY = y;
 		id = ID ;
-		righthand = new Stack<Shape>();
-		lefthand = new Stack<Shape>();
+		score = 0;
+		righthand = new PlayerHand(this);
+		lefthand = new PlayerHand(this);
 	}
 	
 	public void setPosX(int x){ posX = x;}
 	public void setPosY(int y){ posY = y;}
 	public void setID(int ID) { id  = ID;}
+	public void setScore(int score) {this.score = score;}
+	
 	
 	public int getPosX(){ return  posX;}
 	public int getPosY(int x){return posY;}
 	public int getID(){ return id;}
-	public int getRightHandStackSize() {return righthand.size();}
-	public int getLeftHandStackSize()  {return lefthand.size(); }
-	
-	// function bet5od tab2 w t7oto f 2id el wad sawa2 el lemen 2w el shemal 
+	public int getRightHandSize() {return righthand.getHandSize();}
+	public int getLefttHandSize() {return lefthand.getHandSize();}
+	public int getScore() {return score;}
 	
 	public void addShapeToRightHand(Shape a)
 	{
-		righthand.add(a);
-		// then check if there is a three paltes with the same color
+		righthand.addShape(a);
 	}
 	
 	public void addShapeToLeftHand(Shape a)
 	{
-		lefthand.add(a);
-		// then check if there is a three paltes with the same color
+		lefthand.addShape(a);
 	}
 	
+	public void checkToRemovePlatesWithSameColor()
+	{
+		righthand.checkIfThreePlatesOfTheSameColorInTheRightHand();
+		lefthand.checkIfThreePlatesOfTheSameColorInTheRightHand();
+	}
+	
+	public void incrementPlayerScore() {setScore(getScore()+1);}
 	
 }
