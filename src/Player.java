@@ -6,14 +6,16 @@ public class Player {
 	int id;
 	int score;
 	String name;
+	GameModel gameModel;
 	
-	public Player(int x ,int y, int ID) {
+	public Player(int x ,int y, int ID, GameModel gameModel) {
 		posX = x;
 		posY = y;
 		id = ID ;
 		score = 0;
 		righthand = new PlayerHand(this);
 		lefthand = new PlayerHand(this);
+		this.gameModel = gameModel;
 	}
 	
 	public void setPosX(int x){ posX = x;}

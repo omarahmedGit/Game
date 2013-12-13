@@ -44,7 +44,7 @@ public class PlayerHand {
 	{
 		if(getHandSize()<3) return ; //should never happen 
 		for (int i = 0; i < 3; i++) {
-			hand.pop();
+			player.gameModel.pool.addShape(hand.pop());
 		}
 	}
 }

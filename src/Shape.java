@@ -5,7 +5,12 @@ public class Shape {
 	Color c = Color.BLACK;
 	int posX;
 	int posY;
-	int state;
+	ShapeState falling;
+	ShapeState onTheLine;
+	ShapeState withPlayer;
+	ShapeState notVisual;
+	ShapeState currentState;
+	
 	/* 
 	 * every shape has [as i think] 7 states
 	 * 1- in the pool and not visual on the screen
@@ -21,17 +26,19 @@ public class Shape {
 		this.c = c;
 		posX = x;
 		posY = y;
-		state = 1;
+		falling    = new ShapeFalling(this);
+		onTheLine  = new ShapeOnTheLine(this);
+		withPlayer = new ShapeWithPlayer(this);
+		notVisual  = new ShapeNotVisual(this);
+		currentState = notVisual;
 	}
 	
 	
 	public int getPostionX() { return posX;}
 	public int getPostionY() { return posY;}
 	public Color getColor()  { return 	 c;}
-	public int getState()    { return state;}
 	
 	public void setPostionX(int x) { posX = x;}
 	public void setPostionY(int y) { posY = y;}
 	public void setColor(Color color)  { c = color ;}
-	public void setState(int state){this.state = state;}
 }
