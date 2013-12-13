@@ -1,3 +1,4 @@
+package ModelandControl;
 import java.awt.Color;
 
 
@@ -6,7 +7,7 @@ public class Shape {
 	int posX;	// center X
 	int posY;	// center Y
 	int widthRadius; //width
-	int heightRadius; // Height
+	int hightRadius;
 	
 	ShapeState falling;
 	ShapeState onTheLine;
@@ -25,12 +26,15 @@ public class Shape {
 	 * 		c) with player2 right hand 6
 	 * 		d) with player2 left  hand 7
 	 */
-	public Shape(Color c,int x,int y,int widthradius, int heightradius) {
+	public Shape(){
+		
+	}
+	public Shape(Color c,int x,int y,int widthradius, int hightradius) {
 		this.c = c;
 		posX = x;
 		posY = y;
 		widthRadius = widthradius;
-		heightRadius = heightradius;
+		hightRadius = hightradius;
 		falling    = new ShapeFalling(this);
 		onTheLine  = new ShapeOnTheLine(this);
 		withPlayer = new ShapeWithPlayer(this);

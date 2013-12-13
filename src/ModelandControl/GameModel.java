@@ -1,3 +1,4 @@
+package ModelandControl;
 
 
 public class GameModel {
@@ -7,7 +8,9 @@ public class GameModel {
 	Belt leftBelt;
 	ShapesPool pool;
 	FallingArea fall;
-	
+	public GameModel(String loadedGame) { // el string 3lma mesh aktar mesh 3aref 7ewar el save da lessa 
+		// TODO Auto-generated constructor stub
+	}
 	public GameModel() {
 		player1   = new Player(-10, 0, 1,this); // early assumptions for the parameters
 		player2   = new Player( 10, 0, 2,this);
@@ -19,6 +22,11 @@ public class GameModel {
 	
 	
 	
+
+
+
+
+
 	public void update()
 	{
 		

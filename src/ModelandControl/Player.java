@@ -1,3 +1,4 @@
+package ModelandControl;
 public class Player {
 	PlayerHand righthand;
 	PlayerHand lefthand;

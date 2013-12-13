@@ -1,10 +1,12 @@
+package ModelandControl;
 
-public class ShapeNotVisual implements ShapeState{
+public class ShapeOnTheLine implements ShapeState{
 	
 	Shape shape;
-	public ShapeNotVisual(Shape a) {
+	public ShapeOnTheLine(Shape a) {
 		shape = a;
 	}
+	
 	
 	@Override
 	public void nextAction() {
