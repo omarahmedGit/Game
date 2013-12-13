@@ -5,7 +5,7 @@ public class Shape {
 	Color c = Color.BLACK;
 	int posX;	// center X
 	int posY;	// center Y
-	int widthRadius;
+	int widthRadius; //width
 	int hightRadius;
 	
 	ShapeState falling;
