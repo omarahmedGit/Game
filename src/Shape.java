@@ -6,7 +6,7 @@ public class Shape {
 	int posX;	// center X
 	int posY;	// center Y
 	int widthRadius; //width
-	int hightRadius;
+	int heightRadius; // Height
 	
 	ShapeState falling;
 	ShapeState onTheLine;
@@ -25,12 +25,12 @@ public class Shape {
 	 * 		c) with player2 right hand 6
 	 * 		d) with player2 left  hand 7
 	 */
-	public Shape(Color c,int x,int y,int widthradius, int hightradius) {
+	public Shape(Color c,int x,int y,int widthradius, int heightradius) {
 		this.c = c;
 		posX = x;
 		posY = y;
 		widthRadius = widthradius;
-		hightRadius = hightradius;
+		heightRadius = heightradius;
 		falling    = new ShapeFalling(this);
 		onTheLine  = new ShapeOnTheLine(this);
 		withPlayer = new ShapeWithPlayer(this);
