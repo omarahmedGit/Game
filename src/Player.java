@@ -5,6 +5,7 @@ public class Player {
 	int posY;
 	int id;
 	int score;
+	String name;
 	
 	public Player(int x ,int y, int ID) {
 		posX = x;
@@ -19,6 +20,7 @@ public class Player {
 	public void setPosY(int y){ posY = y;}
 	public void setID(int ID) { id  = ID;}
 	public void setScore(int score) {this.score = score;}
+	public void setName(String name) {this.name = name;}
 	
 	
 	public int getPosX(){ return  posX;}
@@ -27,6 +29,7 @@ public class Player {
 	public int getRightHandSize() {return righthand.getHandSize();}
 	public int getLefttHandSize() {return lefthand.getHandSize();}
 	public int getScore() {return score;}
+	public String getName() {return name;}
 	
 	public void addShapeToRightHand(Shape a)
 	{

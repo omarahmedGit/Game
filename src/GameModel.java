@@ -6,7 +6,14 @@ public class GameModel {
 	Player player2;
 	Belt rightBelt;
 	Belt leftBelt;
-	ArrayList<Shape> plates;
+	ShapesPool pool;
+	
+	
+	public GameModel() {
+		
+		
+		
+	}
 	
 	
 }
