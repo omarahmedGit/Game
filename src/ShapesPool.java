@@ -23,11 +23,14 @@ public class ShapesPool {
 	public Shape getShape()
 	{
 		if(pool.isEmpty()) return null; // all the shapes are taken and the pool is empty
-		return pool.poll(); // get a shape from
+		Shape shape = pool.poll();
+		shape.setShapeState(shape.getOnTheLine()); // changing the state from not visual to on the line
+		return shape; // get a shape from the pool
 	}
 	
 	public void addShape(Shape a)
 	{
+		a.setShapeState(a.getNotVisual()); // changing the state from any thing to not visual [adding it to the pool]
 		pool.add(a);
 	}
 	

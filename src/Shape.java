@@ -3,8 +3,11 @@ import java.awt.Color;
 
 public class Shape {
 	Color c = Color.BLACK;
-	int posX;
-	int posY;
+	int posX;	// center X
+	int posY;	// center Y
+	int widthRadius;
+	int hightRadius;
+	
 	ShapeState falling;
 	ShapeState onTheLine;
 	ShapeState withPlayer;
@@ -22,10 +25,12 @@ public class Shape {
 	 * 		c) with player2 right hand 6
 	 * 		d) with player2 left  hand 7
 	 */
-	public Shape(Color c,int x,int y) {
+	public Shape(Color c,int x,int y,int widthradius, int hightradius) {
 		this.c = c;
 		posX = x;
 		posY = y;
+		widthRadius = widthradius;
+		hightRadius = hightradius;
 		falling    = new ShapeFalling(this);
 		onTheLine  = new ShapeOnTheLine(this);
 		withPlayer = new ShapeWithPlayer(this);
@@ -37,8 +42,14 @@ public class Shape {
 	public int getPostionX() { return posX;}
 	public int getPostionY() { return posY;}
 	public Color getColor()  { return 	 c;}
+	public ShapeState getFalling()		{return 	falling;}
+	public ShapeState getOnTheLine()	{return   onTheLine;}
+	public ShapeState getWithPlayer()	{return  withPlayer;}
+	public ShapeState getNotVisual()	{return   notVisual;}	
+	
 	
 	public void setPostionX(int x) { posX = x;}
 	public void setPostionY(int y) { posY = y;}
 	public void setColor(Color color)  { c = color ;}
+	public void setShapeState(ShapeState newShapeState) {currentState = newShapeState;}
 }
