@@ -12,24 +12,26 @@ public class Shape {
 	 * 2- on the line belt
 	 * 3- falling in free motion
 	 * 4- a player hold it 
-	 * 		a) with player1 right hand
-	 * 		b) with player1 left  hand
-	 * 		c) with player2 right hand
-	 * 		d) with player2 left  hand
+	 * 		a) with player1 right hand 4
+	 * 		b) with player1 left  hand 5
+	 * 		c) with player2 right hand 6
+	 * 		d) with player2 left  hand 7
 	 */
 	public Shape(Color c,int x,int y) {
 		this.c = c;
 		posX = x;
 		posY = y;
+		state = 1;
 	}
 	
 	
 	public int getPostionX() { return posX;}
 	public int getPostionY() { return posY;}
 	public Color getColor()  { return 	 c;}
+	public int getState()    { return state;}
 	
 	public void setPostionX(int x) { posX = x;}
 	public void setPostionY(int y) { posY = y;}
 	public void setColor(Color color)  { c = color ;}
-	
+	public void setState(int state){this.state = state;}
 }
