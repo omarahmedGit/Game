@@ -14,6 +14,7 @@ public class GameWindow extends JFrame{
 		Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 		this.setSize(screenSize);
 		this.setLocationRelativeTo(null);
+		this.setUndecorated(true);
 		this.setVisible(true);
 	}
 

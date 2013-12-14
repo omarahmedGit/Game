@@ -1,5 +1,10 @@
+import java.awt.Graphics;
+import java.awt.Image;
 
-public class Player {
+import javax.swing.ImageIcon;
+
+
+public class Player implements Drawable{
 	PlayerHand righthand;
 	PlayerHand lefthand;
 	private int posX; // top left X
@@ -9,14 +14,22 @@ public class Player {
 	private int height, width;
 	String name;
 	GameModel gameModel;
+	Image image;
 	
-	public Player(int ID, GameModel gameModel) {
+	public Player(int x,int y,int ID, GameModel gameModel) {
 		id = ID ;
 		score = 0;
 		this.gameModel = gameModel;
-		setDimension();
-		righthand = new PlayerHand(this, (getPosX() + getPosX()/3));
+		width=gameModel.getScreenSize().width/8;
+		height=gameModel.getScreenSize().height/4;
+		posX = x;
+		posY = y;
+//		setDimension();
+		righthand = new PlayerHand(this, (getPosX() + getPosX()*2/3));
 		lefthand = new PlayerHand(this, getPosX());
+		
+		ImageIcon i=new ImageIcon("p"+ID+".png");
+		image=i.getImage();
 	}
 	
 	public void setPosX(int x){ posX = x;}
@@ -39,21 +52,21 @@ public class Player {
 	public int getHeight() {return height;}
 	public int getWidht()  {return 	width;}
 	
-	private void setDimension()
-	{
-		setWidth(gameModel.getScreenSize().width/8);
-		setHeight(gameModel.getScreenSize().height/4);
-		if(id==1)
-		{
-			setPosY(gameModel.getScreenSize().height-(gameModel.getScreenSize().height/4));
-			setPosX((gameModel.getScreenSize().width/2)+(gameModel.getScreenSize().width/2 - getWidht())/2);
-		}
-		else
-		{
-			setPosY(gameModel.getScreenSize().height-(gameModel.getScreenSize().height/4));
-			setPosX((gameModel.getScreenSize().width/2 - getWidht())/2);			
-		}
-	}
+//	private void setDimension()
+//	{
+//		setWidth(gameModel.getScreenSize().width/8);
+//		setHeight(gameModel.getScreenSize().height/4);
+//		if(id==1)
+//		{
+//			setPosY(gameModel.getScreenSize().height-(gameModel.getScreenSize().height/4));
+//			setPosX((gameModel.getScreenSize().width/2)+(gameModel.getScreenSize().width/2 - getWidht())/2);
+//		}
+//		else
+//		{
+//			setPosY(gameModel.getScreenSize().height-(gameModel.getScreenSize().height/4));
+//			setPosX((gameModel.getScreenSize().width/2 - getWidht())/2);			
+//		}
+//	}
 	
 	public void addShapeToRightHand(Shape a)
 	{
@@ -72,5 +85,11 @@ public class Player {
 	}
 	
 	public void incrementPlayerScore() {setScore(getScore()+1);}
-	
+
+	@Override
+	public void drawShape(Graphics g) {
+		// TODO Auto-generated method stub
+		g.drawImage(image, posX,posY,width,height,null);
+		
+	}
 }
