@@ -8,7 +8,7 @@ public class Shape implements Drawable{
 	int posX;	// center X
 	int posY;	// center Y
 	int widthRadius; //width
-	int hightRadius;
+	int heightRadius;
 	
 	ShapeState falling;
 	ShapeState onTheLine;
@@ -30,12 +30,12 @@ public class Shape implements Drawable{
 	public Shape(){
 		
 	}
-	public Shape(Color c,int x,int y,int widthradius, int hightradius) {
+	public Shape(Color c,int x,int y,int widthradius, int heightradius) {
 		this.c = c;
 		posX = x;
 		posY = y;
 		widthRadius = widthradius;
-		hightRadius = hightradius;
+		heightRadius = heightradius;
 		falling    = new ShapeFalling(this);
 		onTheLine  = new ShapeOnTheLine(this);
 		withPlayer = new ShapeWithPlayer(this);
@@ -46,6 +46,8 @@ public class Shape implements Drawable{
 	
 	public int getPostionX() { return posX;}
 	public int getPostionY() { return posY;}
+	public int getWidth() 	{return  widthRadius;}
+	public int getHeight() 	{return heightRadius;}
 	public Color getColor()  { return 	 c;}
 	public ShapeState getFalling()		{return 	falling;}
 	public ShapeState getOnTheLine()	{return   onTheLine;}

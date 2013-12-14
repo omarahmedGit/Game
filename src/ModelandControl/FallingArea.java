@@ -14,6 +14,11 @@ public class FallingArea implements ShapesIterator{
 	{
 		
 	}
+	public void addShape(Shape a)
+	{
+		a.setShapeState(a.getFalling());
+		fallingarea.add(a);
+	}
 	@Override
 	public Iterator<Shape> createIterator() {
 		return fallingarea.iterator();
