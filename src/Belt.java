@@ -60,6 +60,7 @@ public class Belt implements ShapesIterator,Drawable{
 		while(itr.hasNext())
 		{
 			Shape temp = itr.next();
+			
 			// move + check if falls
 			
 			temp.setPostionX(temp.getPostionX()+direction);
@@ -80,7 +81,6 @@ public class Belt implements ShapesIterator,Drawable{
 
 	@Override
 	public Iterator<Shape> createIterator() {
-		// TODO Auto-generated method stub
 		return line.iterator();
 	}
 

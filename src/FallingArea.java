@@ -12,6 +12,9 @@ public class FallingArea implements ShapesIterator{
 	}
 	public void moveShapes()
 	{
+		// move the shapes and check if a player catch any of them
+		// when i wake up
+		
 		
 	}
 	public void addShape(Shape a)

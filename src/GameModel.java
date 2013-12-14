@@ -15,7 +15,6 @@ public class GameModel implements ReadOnlyGameModel, UpdateGameModelInfc{
 	Shape s; // bassem test
 	public GameModel(String loadedGame,Dimension screenSize) { 
 		// el string 3lma mesh aktar mesh 3aref 7ewar el save da lessa 
-		// TODO Auto-generated constructor stub
 	}
 	public GameModel(Dimension screenSize) {
 		s=new Shape1(Color.black,50,50,50,50);
@@ -28,8 +27,8 @@ public class GameModel implements ReadOnlyGameModel, UpdateGameModelInfc{
 //		System.out.println(screenSize.width);
 		player1   = new Player(-10, 0, 1,this); // early assumptions for the parameters
 		player2   = new Player( 10, 0, 2,this);
-		rightBelt = new Belt(20,30, this); // some thing like that on the screen
-		leftBelt  = new Belt(0,10, this);  // [0]---------------[10]               [20]---------------[30]//         
+		rightBelt = new Belt(700,1000, this); // some thing like that on the screen
+		leftBelt  = new Belt(0,300, this);  // [0]---------------[10]               [20]---------------[30]//         
 		pool = new ShapesPool();
 		fall = new FallingArea();
 	}
