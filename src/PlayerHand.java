@@ -18,7 +18,8 @@ public class PlayerHand {
 	
 	public boolean CanCatchIt(Shape a)
 	{
-		// need to impelent it
+		// need to implement it
+		
 		
 		return true;
 	}

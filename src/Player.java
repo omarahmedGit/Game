@@ -2,21 +2,21 @@
 public class Player {
 	PlayerHand righthand;
 	PlayerHand lefthand;
-	int posX;
-	int posY;
-	int id;
-	int score;
+	private int posX; // top left X
+	private int posY; // top left Y
+	private int id;
+	private int score;
+	private int height, width;
 	String name;
 	GameModel gameModel;
 	
-	public Player(int x ,int y, int ID, GameModel gameModel) {
-		posX = x;
-		posY = y;
+	public Player(int ID, GameModel gameModel) {
 		id = ID ;
 		score = 0;
+		this.gameModel = gameModel;
+		setDimension();
 		righthand = new PlayerHand(this);
 		lefthand = new PlayerHand(this);
-		this.gameModel = gameModel;
 	}
 	
 	public void setPosX(int x){ posX = x;}
@@ -24,7 +24,8 @@ public class Player {
 	public void setID(int ID) { id  = ID;}
 	public void setScore(int score) {this.score = score;}
 	public void setName(String name) {this.name = name;}
-	
+	public void setHeight(int height) {this.height = height;}
+	public void setWidth(int width) {this.width = width;}
 	
 	public int getPosX(){ return  posX;}
 	public int getPosY(int x){return posY;}
@@ -35,6 +36,24 @@ public class Player {
 	public String getName() {return name;}
 	public PlayerHand getRightHand() {return righthand;}
 	public PlayerHand getLeftHand() {return lefthand;}
+	public int getHeight() {return height;}
+	public int getWidht()  {return 	width;}
+	
+	private void setDimension()
+	{
+		setWidth(gameModel.getScreenSize().width/8);
+		setHeight(gameModel.getScreenSize().height/4);
+		if(id==1)
+		{
+			setPosY(gameModel.getScreenSize().height-(gameModel.getScreenSize().height/4));
+			setPosX((gameModel.getScreenSize().width/2)+(gameModel.getScreenSize().width/2 - getWidht())/2);
+		}
+		else
+		{
+			setPosY(gameModel.getScreenSize().height-(gameModel.getScreenSize().height/4));
+			setPosX((gameModel.getScreenSize().width/2 - getWidht())/2);			
+		}
+	}
 	
 	public void addShapeToRightHand(Shape a)
 	{

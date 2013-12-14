@@ -12,24 +12,24 @@ public class GameModel implements ReadOnlyGameModel, UpdateGameModelInfc{
 	Belt leftBelt;
 	ShapesPool pool;
 	FallingArea fall;
+	Dimension gameDimension;
 	Shape s; // bassem test
-	public GameModel(String loadedGame,Dimension screenSize) { 
+	public GameModel(String loadedGame, Dimension screenSize) { 
 		// el string 3lma mesh aktar mesh 3aref 7ewar el save da lessa 
 	}
 	public GameModel(Dimension screenSize) {
 		s=new Shape1(Color.black,50,50,50,50);
-		// screen size to make all dimensions relative to it
-		/*
-		 * setting the screen default size (1000*1000) and unresizable
-		 */
-//		TAKE CARE :screen size by default = 768 * 1366
-		player1   = new Player(-10, 0, 1,this); // early assumptions for the parameters
-		player2   = new Player( 10, 0, 2,this);
+		gameDimension = screenSize;
+		player1   = new Player(1,this); // early assumptions for the parameters
+		player2   = new Player(2,this);
 		rightBelt = new Belt(700,1000, this); // some thing like that on the screen
 		leftBelt  = new Belt(0,300, this);  // [0]---------------[10]               [20]---------------[30]//         
 		pool = new ShapesPool();
 		fall = new FallingArea(this);
+		
 	}
+	
+	public Dimension getScreenSize() {return gameDimension;}
 	
 	public void update(int x1,int y1, int x2,int y2)
 	{
