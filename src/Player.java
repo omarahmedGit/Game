@@ -15,8 +15,8 @@ public class Player {
 		score = 0;
 		this.gameModel = gameModel;
 		setDimension();
-		righthand = new PlayerHand(this);
-		lefthand = new PlayerHand(this);
+		righthand = new PlayerHand(this, (getPosX() + getPosX()/3));
+		lefthand = new PlayerHand(this, getPosX());
 	}
 	
 	public void setPosX(int x){ posX = x;}
@@ -28,7 +28,7 @@ public class Player {
 	public void setWidth(int width) {this.width = width;}
 	
 	public int getPosX(){ return  posX;}
-	public int getPosY(int x){return posY;}
+	public int getPosY(){return posY;}
 	public int getID(){ return id;}
 	public int getRightHandSize() {return righthand.getHandSize();}
 	public int getLefttHandSize() {return lefthand.getHandSize();}

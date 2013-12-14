@@ -46,8 +46,8 @@ public class Shape implements Drawable{
 	
 	public int getPostionX() { return posX;}
 	public int getPostionY() { return posY;}
-	public int getWidth() 	{return  widthRadius;}
-	public int getHeight() 	{return heightRadius;}
+	public int getWidthRadius() 	{return  widthRadius;}
+	public int getHeightRadius() 	{return heightRadius;}
 	public Color getColor()  { return 	 c;}
 	public ShapeState getFalling()		{return 	falling;}
 	public ShapeState getOnTheLine()	{return   onTheLine;}

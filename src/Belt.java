@@ -36,21 +36,21 @@ public class Belt implements ShapesIterator,Drawable{
 			Shape temp = line.get(getPlatesNumber()-1);
 			if(start>end)
 			{
-				if(!(temp.getPostionX()+temp.getWidth()+spaceBtweenPlates<=start)){
+				if(!(temp.getPostionX()+temp.getWidthRadius()+spaceBtweenPlates<=start)){
 					return ;
 				}
 			}
 			else
 			{
-				if(!(temp.getPostionX()-temp.getWidth()>=start+spaceBtweenPlates)){
+				if(!(temp.getPostionX()-temp.getWidthRadius()>=start+spaceBtweenPlates)){
 					return ;
 				}
 			}
 		}
 		
 		Shape shape = game.pool.getShape();
-		shape.setPostionX(start>end?start + shape.getWidth():start-shape.getWidth());
-		shape.setPostionY(position-shape.getHeight());
+		shape.setPostionX(start>end?start + shape.getWidthRadius():start-shape.getWidthRadius());
+		shape.setPostionY(position-shape.getHeightRadius());
 		line.add(shape);
 	}
 	
