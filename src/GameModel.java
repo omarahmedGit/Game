@@ -6,7 +6,7 @@ import java.util.ArrayList;
 
 
 public class GameModel implements ReadOnlyGameModel, UpdateGameModelInfc{
-	int p1x,p1y,p2x,p2y;
+	int p1x,p2x,py;
 	Player player1;
 	Player player2;
 	Belt rightBelt;
@@ -21,12 +21,11 @@ public class GameModel implements ReadOnlyGameModel, UpdateGameModelInfc{
 	public GameModel(Dimension screenSize) {
 		s=new Shape1(Color.black,50,50,50,50);
 		gameDimension = screenSize;
-		p1x=screenSize.width/8*2;
-		p2x=screenSize.width/8*5;
-		p1y=screenSize.height/4*3;
-		p2y=screenSize.height/4*3;
-		player1   = new Player(p1x,p1y,1,this); // early assumptions for the parameters
-		player2   = new Player( p2x,p2y, 2,this);
+		p1x=(screenSize.width/8);
+		p2x=(screenSize.width/8)*5;
+		py =(screenSize.height/4)*3;
+		player1   = new Player(p1x,py,1,this); // early assumptions for the parameters
+		player2   = new Player( p2x,py, 2,this);
 		rightBelt = new Belt(700,1000, this); // some thing like that on the screen
 		leftBelt  = new Belt(0,300, this);  // [0]---------------[10]               [20]---------------[30]//         
 		pool = new ShapesPool();

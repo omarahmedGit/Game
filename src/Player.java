@@ -24,7 +24,6 @@ public class Player implements Drawable{
 		height=gameModel.getScreenSize().height/4;
 		posX = x;
 		posY = y;
-//		setDimension();
 		righthand = new PlayerHand(this, (getPosX() + getPosX()*2/3));
 		lefthand = new PlayerHand(this, getPosX());
 		
