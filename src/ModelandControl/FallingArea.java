@@ -10,7 +10,10 @@ public class FallingArea implements ShapesIterator{
 	public FallingArea() {
 		fallingarea = new ArrayList<Shape>();
 	}
-
+	public void moveShapes()
+	{
+		
+	}
 	@Override
 	public Iterator<Shape> createIterator() {
 		return fallingarea.iterator();

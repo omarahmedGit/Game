@@ -11,7 +11,6 @@ public class ShapesLoader {
 		if (shapesLoader ==null){
 			shapesLoader = new ShapesLoader();
 		}
-		
 		return null;
 		
 	}
