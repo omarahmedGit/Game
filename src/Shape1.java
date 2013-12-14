@@ -14,14 +14,14 @@ public class Shape1 extends Shape{
 
 		
 		System.out.println(c.toString()+x + y +widthradius+hightradius);
-		Rectangle r= new Rectangle(x, y, widthradius, heightRadius);
+//		Rectangle r= new Rectangle(x, y, widthradius, getHeightRadius());
 	}
 	@Override
 	public void drawShape(Graphics g) {
 		// TODO Auto-generated method stub
 //		test
 		g.setColor(Color.black);
-		g.drawRect(this.posX,this.posX ,this.widthRadius ,this.heightRadius);
+		g.drawRect(this.getPostionX(),this.getPostionY() ,this.getWidthRadius() ,this.getHeightRadius());
 		
 	}
 

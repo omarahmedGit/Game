@@ -11,15 +11,26 @@ public class PlayerHand {
 	private int tolerance = 5;
 	public PlayerHand(Player p, int xPos) {
 		hand = new Stack<Shape>();
-		player = p;
-		this.xPos = xPos;
-		xPosEnd = xPos + player.getWidht()/3;
-		handHeight = player.getPosY();
+		setPlayer(p);
+		setXPos(xPos);
+		setXPosEnd(xPos + player.getWidht()/3);
+		setHandHeight(player.getPosY());
 	}
 	
 	public int getHandSize() {return hand.size();}
-	
 	public int getHandHeight() {return handHeight;}
+	public int getXPos() {return xPos;}
+	public int getXPosEnd() {return xPosEnd;}
+	public int getTolerance() {return tolerance;}
+	public Player getPlayer() {return player;}
+	
+	public void setHandHeight(int height) {handHeight = height;}
+	public void setXPos(int x) {xPos = x;}
+	public void setXPosEnd(int xEnd) {xPosEnd = xEnd;}
+	public void setTolerance(int tolerance) {this.tolerance = tolerance;}
+	public void setPlayer(Player player) {this.player = player;}
+	
+	
 	
 	public boolean CanCatchIt(Shape a)
 	{
@@ -39,9 +50,9 @@ public class PlayerHand {
 	public void addShape(Shape a)
 	{
 		a.setShapeState(a.getWithPlayer());
-		a.setPostionX((xPos+xPosEnd)/2);
-		a.setPostionY(handHeight-a.getHeightRadius());
-		handHeight -= (2*a.heightRadius);
+		a.setPostionX((getXPos()+getXPosEnd())/2);
+		a.setPostionY(getHandHeight()-a.getHeightRadius());
+		setHandHeight(getHandHeight() - (2*a.getHeightRadius()));
 		hand.add(a);
 	}
 	
@@ -63,7 +74,7 @@ public class PlayerHand {
 		
 		if(checkPlates) {
 			removeTopThreeShapes();
-			player.incrementPlayerScore();
+			getPlayer().incrementPlayerScore();
 		}
 		
 	}
@@ -71,8 +82,8 @@ public class PlayerHand {
 	{
 		if(getHandSize()<3) return ; //should never happen 
 		for (int i = 0; i < 3; i++) {
-			handHeight += (hand.peek().heightRadius*2);
-			player.gameModel.pool.addShape(hand.pop());
+			setHandHeight(getHandHeight()+(hand.peek().getHeightRadius()*2));
+			getPlayer().getGameModel().getShapesPool().addShape(hand.pop());
 		}
 	}
 }

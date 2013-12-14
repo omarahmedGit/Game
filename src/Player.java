@@ -5,27 +5,27 @@ import javax.swing.ImageIcon;
 
 
 public class Player implements Drawable{
-	PlayerHand righthand;
-	PlayerHand lefthand;
+	private PlayerHand righthand;
+	private PlayerHand lefthand;
 	private int posX; // top left X
 	private int posY; // top left Y
 	private int id;
 	private int score;
 	private int height, width;
-	String name;
-	GameModel gameModel;
+	private String name;
+	private GameModel gameModel;
 	Image image;
 	
 	public Player(int x,int y,int ID, GameModel gameModel) {
-		id = ID ;
-		score = 0;
-		this.gameModel = gameModel;
-		width=gameModel.getScreenSize().width/8;
-		height=gameModel.getScreenSize().height/4;
-		posX = x;
-		posY = y;
-		righthand = new PlayerHand(this, (getPosX() + getPosX()*2/3));
-		lefthand = new PlayerHand(this, getPosX());
+		setID(ID);
+		setScore(0);
+		setGameModel(gameModel);
+		setWidth(gameModel.getScreenSize().width/8);
+		setHeight(gameModel.getScreenSize().height/4);
+		setPosX(x);
+		setPosY(y);
+		setRightHand(new PlayerHand(this, (getPosX() + getPosX()*2/3)));
+		setLeftHand(new PlayerHand(this, getPosX()));
 		
 		ImageIcon i=new ImageIcon("p"+ID+".png");
 		image=i.getImage();
@@ -38,6 +38,10 @@ public class Player implements Drawable{
 	public void setName(String name) {this.name = name;}
 	public void setHeight(int height) {this.height = height;}
 	public void setWidth(int width) {this.width = width;}
+	public void setRightHand(PlayerHand hand){righthand = hand;}
+	public void setLeftHand(PlayerHand hand){lefthand   = hand;}
+	public void setGameModel(GameModel game){this.gameModel = game;}
+	
 	
 	public int getPosX(){ return  posX;}
 	public int getPosY(){return posY;}
@@ -50,22 +54,7 @@ public class Player implements Drawable{
 	public PlayerHand getLeftHand() {return lefthand;}
 	public int getHeight() {return height;}
 	public int getWidht()  {return 	width;}
-	
-//	private void setDimension()
-//	{
-//		setWidth(gameModel.getScreenSize().width/8);
-//		setHeight(gameModel.getScreenSize().height/4);
-//		if(id==1)
-//		{
-//			setPosY(gameModel.getScreenSize().height-(gameModel.getScreenSize().height/4));
-//			setPosX((gameModel.getScreenSize().width/2)+(gameModel.getScreenSize().width/2 - getWidht())/2);
-//		}
-//		else
-//		{
-//			setPosY(gameModel.getScreenSize().height-(gameModel.getScreenSize().height/4));
-//			setPosX((gameModel.getScreenSize().width/2 - getWidht())/2);			
-//		}
-//	}
+	public GameModel getGameModel(){return gameModel;}
 	
 	public void addShapeToRightHand(Shape a)
 	{

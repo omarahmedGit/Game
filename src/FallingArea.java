@@ -10,12 +10,17 @@ public class FallingArea implements ShapesIterator{
 	private node[] moves = new node[3];
 	public FallingArea(GameModel game) {
 		fallingarea = new ArrayList<Shape>();
-		this.game = game;
+		setGameModel(game);
 		moves[0] = new node(0 ,1);
 		moves[1] = new node(-1,1);
 		moves[2] = new node(1 ,1);
 		
 	}
+	
+	public GameModel getGameModel() {return game;}
+	public ArrayList<Shape> getShapesList() {return fallingarea;}
+	
+	public void setGameModel(GameModel game) {this.game=game;}
 	
 	public void getIntoAction() {
 		/*
@@ -42,27 +47,27 @@ public class FallingArea implements ShapesIterator{
 	}
 	
 	public boolean checkPlayerCanCatchPlate(Shape a){
-		if(game.player1.getRightHand().CanCatchIt(a))
+		if(getGameModel().getPlayer1().getRightHand().CanCatchIt(a))
 		{
-			game.player1.getRightHand().addShape(a);
+			getGameModel().getPlayer1().getRightHand().addShape(a);
 			fallingarea.remove(a);
 			return true;
 		}
-		else if(game.player1.getLeftHand().CanCatchIt(a))
+		else if(getGameModel().getPlayer1().getLeftHand().CanCatchIt(a))
 		{
-			game.player1.getLeftHand().addShape(a);
+			getGameModel().getPlayer1().getLeftHand().addShape(a);
 			fallingarea.remove(a);
 			return true;
 		}
-		else if(game.player2.getRightHand().CanCatchIt(a))
+		else if(getGameModel().getPlayer2().getRightHand().CanCatchIt(a))
 		{
-			game.player2.getRightHand().addShape(a);
+			getGameModel().getPlayer2().getRightHand().addShape(a);
 			fallingarea.remove(a);
 			return true;
 		}
-		else if(game.player2.getRightHand().CanCatchIt(a))
+		else if(getGameModel().getPlayer2().getRightHand().CanCatchIt(a))
 		{
-			game.player2.getLeftHand().addShape(a);
+			getGameModel().getPlayer2().getLeftHand().addShape(a);
 			fallingarea.remove(a);
 			return true;
 		}

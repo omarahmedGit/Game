@@ -5,28 +5,34 @@ import java.util.ArrayList;
 import java.util.Iterator;
 
 public class Belt implements ShapesIterator,Drawable{
-	int start, end, position;
+	private int start, end, position;
 	ArrayList<Shape> line;
-	int direction = 2;
-	int spaceBtweenPlates = 5;
-	GameModel game;
+	private int direction = 2;
+	private int spaceBtweenPlates = 5;
+	private GameModel game;
 	public Belt(int start, int end, GameModel game) {
-		this.start = start;
-		this.end   = end;
-		
+		setStart(start);
+		setEnd(end);
+		setGameModel(game);
+		position = game.getScreenSize().height/8;
 		line = new ArrayList<Shape>();
-		
 		if(start>end)
 			direction = -1*direction;
-		
-		this.game = game;
 	}
+	
+	public void setStart(int start) {this.start = start;}
+	public void setEnd(int end) {this.end = end;}
+	public void setGameModel(GameModel game){this.game = game;}
+	
+	public int getStart() {return start;}
+	public int getEnd() {return end;}
+	public GameModel getGameModel(){return game;}
 	
 	public int getPlatesNumber() {return line.size();}
 	
 	public void addShapesToBelt()
 	{
-		if(game.pool.getShapesLeftInThePool()==0){
+		if(getGameModel().getShapesPool().getShapesLeftInThePool()==0){
 			// shouldn't get here ever !
 			return ;
 		}
@@ -48,7 +54,7 @@ public class Belt implements ShapesIterator,Drawable{
 			}
 		}
 		
-		Shape shape = game.pool.getShape();
+		Shape shape = getGameModel().getShapesPool().getShape();
 		shape.setPostionX(start>end?start + shape.getWidthRadius():start-shape.getWidthRadius());
 		shape.setPostionY(position-shape.getHeightRadius());
 		line.add(shape);
@@ -67,12 +73,12 @@ public class Belt implements ShapesIterator,Drawable{
 			
 			if(temp.getPostionX()>end&&direction>0)
 			{
-				game.fall.addShape(temp);
+				getGameModel().getFallingArea().addShape(temp);
 				line.remove(temp);
 			}
 			else if(temp.getPostionX()<end&&direction<0)
 			{
-				game.fall.addShape(temp);
+				getGameModel().getFallingArea().addShape(temp);
 				line.remove(temp);
 			}
 		}

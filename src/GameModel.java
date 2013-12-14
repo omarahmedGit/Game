@@ -6,34 +6,46 @@ import java.util.ArrayList;
 
 
 public class GameModel implements ReadOnlyGameModel, UpdateGameModelInfc{
-	int p1x,p2x,py;
-	Player player1;
-	Player player2;
-	Belt rightBelt;
-	Belt leftBelt;
-	ShapesPool pool;
-	FallingArea fall;
-	Dimension gameDimension;
+	private Player player1;
+	private Player player2;
+	private Belt rightBelt;
+	private Belt leftBelt;
+	private ShapesPool pool;
+	private FallingArea fall;
+	private Dimension gameDimension;
 	Shape s; // bassem test
 	public GameModel(String loadedGame, Dimension screenSize) { 
 		// el string 3lma mesh aktar mesh 3aref 7ewar el save da lessa 
 	}
 	public GameModel(Dimension screenSize) {
 		s=new Shape1(Color.black,50,50,50,50);
-		gameDimension = screenSize;
-		p1x=(screenSize.width/8);
-		p2x=(screenSize.width/8)*5;
-		py =(screenSize.height/4)*3;
-		player1   = new Player(p1x,py,1,this); // early assumptions for the parameters
-		player2   = new Player( p2x,py, 2,this);
-		rightBelt = new Belt(700,1000, this); // some thing like that on the screen
-		leftBelt  = new Belt(0,300, this);  // [0]---------------[10]               [20]---------------[30]//         
-		pool = new ShapesPool();
-		fall = new FallingArea(this);
-		
+		setDimension(screenSize);
+		int p1x=(screenSize.width/8);
+		int p2x=(screenSize.width/8)*6;
+		int py =(screenSize.height/4)*3;
+		setPlayer1(new Player(p1x,py,1,this));
+		setPlayer2(new Player( p2x,py, 2,this));        
+		setRightBelt(new Belt(700,1000, this));
+		setLeftBelt(new Belt(0,300, this));
+		setShapesPool(new ShapesPool());
+		setFallingArea(new FallingArea(this));
 	}
 	
 	public Dimension getScreenSize() {return gameDimension;}
+	public Player getPlayer1() {return player1;}
+	public Player getPlayer2() {return player2;}
+	public Belt	getRightBelt() {return rightBelt;}
+	public Belt	getLeftBelt()  {return  leftBelt;}
+	public ShapesPool getShapesPool() {return pool;}
+	public FallingArea getFallingArea() {return fall;}
+	
+	public void setDimension(Dimension dimension){gameDimension = dimension;}
+	public void setPlayer1(Player player){player1 = player;}
+	public void setPlayer2(Player player){player2 = player;}
+	public void setRightBelt(Belt belt) {rightBelt = belt;}
+	public void setLeftBelt(Belt belt) {leftBelt = belt;}
+	public void setShapesPool(ShapesPool pool) {this.pool = pool;}
+	public void setFallingArea(FallingArea fall){this.fall =fall;}
 	
 	public void update(int x1,int y1, int x2,int y2)
 	{
@@ -55,7 +67,6 @@ public class GameModel implements ReadOnlyGameModel, UpdateGameModelInfc{
 	}
 	@Override
 	public ArrayList<Drawable> getShapesArray() {
-		// TODO Auto-generated method stub
 //		returns all things that must be drawn(implements Drawable) in an arraylist
 //		test test
 		ArrayList<Drawable> d=new ArrayList<Drawable>();
@@ -68,8 +79,8 @@ public class GameModel implements ReadOnlyGameModel, UpdateGameModelInfc{
 	@Override
 	public void updateShapePos(int x, int y) {
 		// TODO Auto-generated method stub
-		s.posX=s.posX+x;
-		s.posY=s.posY+y;
+//		s.posX=s.posX+x;
+//		s.posY=s.posY+y;
 	}
 	
 	

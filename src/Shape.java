@@ -4,17 +4,17 @@ import java.awt.Graphics;
 
 
 public class Shape implements Drawable{
-	Color c = Color.BLACK;
-	int posX;	// center X
-	int posY;	// center Y
-	int widthRadius; //width
-	int heightRadius;
+	private Color c = Color.BLACK;
+	private int posX;	// center X
+	private int posY;	// center Y
+	private int widthRadius; //width
+	private int heightRadius;
 	
-	ShapeState falling;
-	ShapeState onTheLine;
-	ShapeState withPlayer;
-	ShapeState notVisual;
-	ShapeState currentState;
+	private ShapeState falling;
+	private ShapeState onTheLine;
+	private ShapeState withPlayer;
+	private ShapeState notVisual;
+	private ShapeState currentState;
 	
 	/* 
 	 * every shape has [as i think] 7 states
@@ -31,16 +31,17 @@ public class Shape implements Drawable{
 		
 	}
 	public Shape(Color c,int x,int y,int widthradius, int heightradius) {
-		this.c = c;
-		posX = x;
-		posY = y;
-		widthRadius = widthradius;
-		heightRadius = heightradius;
-		falling    = new ShapeFalling(this);
-		onTheLine  = new ShapeOnTheLine(this);
-		withPlayer = new ShapeWithPlayer(this);
-		notVisual  = new ShapeNotVisual(this);
-		currentState = notVisual;
+		setColor(c);
+		setPostionX(x);
+		setPostionY(y);
+		setWidthRedius(widthradius);
+		setHeightRedius(heightradius);
+		setFalling(new ShapeFalling(this));
+		setNotVisual(new ShapeNotVisual(this));
+		setWithPlayer(new ShapeWithPlayer(this));
+		setShapeOnTheLine(new ShapeOnTheLine(this));
+
+		setCurrentState(getNotVisual());
 	}
 	
 	
@@ -59,6 +60,13 @@ public class Shape implements Drawable{
 	public void setPostionY(int y) { posY = y;}
 	public void setColor(Color color)  { c = color ;}
 	public void setShapeState(ShapeState newShapeState) {currentState = newShapeState;}
+	public void setWidthRedius(int w){widthRadius = w;}
+	public void setHeightRedius(int h){heightRadius = h;}
+	public void setFalling(ShapeFalling fall) {falling = fall;}
+	public void setShapeOnTheLine(ShapeOnTheLine state){onTheLine = state;}
+	public void setWithPlayer(ShapeWithPlayer state){withPlayer = state;}
+	public void setNotVisual(ShapeNotVisual state){notVisual = state;}
+	public void setCurrentState(ShapeState state){currentState = state;}
 	
 	@Override
 	public void drawShape(Graphics g) {
