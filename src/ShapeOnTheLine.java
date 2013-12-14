@@ -1,10 +1,13 @@
-package ModelandControl;
 
-public class ShapeWithPlayer implements ShapeState{
+
+public class ShapeOnTheLine implements ShapeState{
+	
 	Shape shape;
-	public ShapeWithPlayer(Shape a) {
+	public ShapeOnTheLine(Shape a) {
 		shape = a;
 	}
+	
+	
 	@Override
 	public void nextAction() {
 		// TODO Auto-generated method stub

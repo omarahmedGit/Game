@@ -1,14 +1,9 @@
-package View;
-
 import java.awt.Graphics;
 
-import javax.sound.midi.ControllerEventListener;
 import javax.swing.JComponent;
-import javax.swing.JFrame;
 
-import ModelandControl.GameModel;
-import ModelandControl.ReadOnlyGameModel;
-import ModelandControl.Updator;
+
+
 
 
 

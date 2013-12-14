@@ -1,4 +1,4 @@
-package ModelandControl;
+
 
 public class ShapesLoader {
 	private static ShapesLoader shapesLoader;

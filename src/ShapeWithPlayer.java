@@ -1,12 +1,10 @@
-package ModelandControl;
 
-public class ShapeFalling implements ShapeState{
-	
+
+public class ShapeWithPlayer implements ShapeState{
 	Shape shape;
-	public ShapeFalling(Shape a) {
+	public ShapeWithPlayer(Shape a) {
 		shape = a;
 	}
-	
 	@Override
 	public void nextAction() {
 		// TODO Auto-generated method stub

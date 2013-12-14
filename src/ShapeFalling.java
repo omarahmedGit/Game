@@ -1,12 +1,11 @@
-package ModelandControl;
 
-public class ShapeOnTheLine implements ShapeState{
+
+public class ShapeFalling implements ShapeState{
 	
 	Shape shape;
-	public ShapeOnTheLine(Shape a) {
+	public ShapeFalling(Shape a) {
 		shape = a;
 	}
-	
 	
 	@Override
 	public void nextAction() {

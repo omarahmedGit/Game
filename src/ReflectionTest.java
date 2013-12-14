@@ -1,4 +1,4 @@
-package ModelandControl;
+
 import java.awt.Color;
 import java.io.File;
 import java.lang.reflect.InvocationTargetException;
