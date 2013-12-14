@@ -1,8 +1,9 @@
 package ModelandControl;
 import java.awt.Color;
+import java.awt.Graphics;
 
 
-public class Shape {
+public class Shape implements Drawable{
 	Color c = Color.BLACK;
 	int posX;	// center X
 	int posY;	// center Y
@@ -56,4 +57,10 @@ public class Shape {
 	public void setPostionY(int y) { posY = y;}
 	public void setColor(Color color)  { c = color ;}
 	public void setShapeState(ShapeState newShapeState) {currentState = newShapeState;}
+	
+	@Override
+	public void drawShape(Graphics g) {
+		// TODO Auto-generated method stub
+		
+	}
 }

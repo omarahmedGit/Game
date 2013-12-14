@@ -1,5 +1,6 @@
 package ModelandControl;
 import java.awt.Color;
+import java.awt.Graphics;
 
 
 public class Shape2 extends Shape{
@@ -10,6 +11,11 @@ public class Shape2 extends Shape{
 		super(c, x, y, widthradius, hightradius);
 		System.out.println(c.toString()+x + y +widthradius+hightradius);
 
+	}
+	@Override
+	public void drawShape(Graphics g) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }

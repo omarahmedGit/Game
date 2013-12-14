@@ -1,9 +1,17 @@
 package ModelandControl;
 
-public class GameControler {
+import java.awt.Dimension;
 
-	public GameControler(GameModelControlINF model) {
+public class GameControler implements Updator {
+
+	public GameControler(UpdateGameModelInfc model, Dimension screenSize) {
 		// TODO Auto-generated constructor stub
+	}
+
+	@Override
+	public void update() {
+		// TODO Auto-generated method stub
+		
 	}
 
 }
