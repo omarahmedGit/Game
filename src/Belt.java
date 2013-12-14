@@ -1,9 +1,10 @@
 
 
+import java.awt.Graphics;
 import java.util.ArrayList;
 import java.util.Iterator;
 
-public class Belt implements ShapesIterator{
+public class Belt implements ShapesIterator,Drawable{
 	// belt is the line which the plates walks on and fall off it 
 	int start, end, position;
 	ArrayList<Shape> line;
@@ -81,6 +82,13 @@ public class Belt implements ShapesIterator{
 	public Iterator<Shape> createIterator() {
 		// TODO Auto-generated method stub
 		return line.iterator();
+	}
+
+	@Override
+	public void drawShape(Graphics g) {
+		// TODO Auto-generated method stub
+		
+		
 	}
 	
 }

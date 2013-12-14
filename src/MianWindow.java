@@ -39,7 +39,7 @@ public class MianWindow extends JFrame {
 	 * @param screenSize 
 	 */
 	public MianWindow(final Dimension screenSize) {
-		builder.makeGameBuilder();
+		builder =new GameBuilder();
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 535, 400);
 		contentPane = new JPanel();
