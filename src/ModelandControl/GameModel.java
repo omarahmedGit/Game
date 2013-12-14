@@ -15,7 +15,11 @@ public class GameModel implements ReadOnlyGameModel{
 		// el string 3lma mesh aktar mesh 3aref 7ewar el save da lessa 
 		// TODO Auto-generated constructor stub
 	}
-	public GameModel(Dimension screenSize) { // screen size to make all dimensions realtive to it
+	public GameModel(Dimension screenSize) {
+		// screen size to make all dimensions relative to it
+		/*
+		 * setting the screen default size (1000*1000) and unresizable
+		 */
 		player1   = new Player(-10, 0, 1,this); // early assumptions for the parameters
 		player2   = new Player( 10, 0, 2,this);
 		rightBelt = new Belt(20,30); // some thing like that on the screen
