@@ -5,20 +5,20 @@ import java.util.ArrayList;
 import java.util.Iterator;
 
 public class Belt implements ShapesIterator,Drawable{
-	// belt is the line which the plates walks on and fall off it 
 	int start, end, position;
 	ArrayList<Shape> line;
-	int direction ;
+	int direction = 2;
 	int spaceBtweenPlates = 5;
 	GameModel game;
 	public Belt(int start, int end, GameModel game) {
 		this.start = start;
 		this.end   = end;
+		
 		line = new ArrayList<Shape>();
-		if(start<end)
-			direction = 2;
-		else
-			direction =-2;
+		
+		if(start>end)
+			direction = -1*direction;
+		
 		this.game = game;
 	}
 	

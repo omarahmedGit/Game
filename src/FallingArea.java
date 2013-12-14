@@ -6,17 +6,69 @@ import java.util.Iterator;
 
 public class FallingArea implements ShapesIterator{
 	ArrayList<Shape> fallingarea;
-	
-	public FallingArea() {
+	GameModel game;
+	private node[] moves = new node[3];
+	public FallingArea(GameModel game) {
 		fallingarea = new ArrayList<Shape>();
+		this.game = game;
+		moves[0] = new node(0 ,1);
+		moves[1] = new node(-1,1);
+		moves[2] = new node(1 ,1);
+		
 	}
-	public void moveShapes()
+	
+	public void getIntoAction() {
+		/*
+		 *		1) check if player can catch it before it falls
+		 *		2) move it if the player can't catch it
+		 *		3) check if the player can catch it after the move  
+		 */
+		Iterator<Shape> itr = createIterator();
+		
+		while(itr.hasNext())
+		{
+			Shape temp = itr.next();
+			if(checkPlayerCanCatchPlate(temp)) continue;
+			moveShapes(temp);
+			checkPlayerCanCatchPlate(temp);
+		}
+	}
+	
+	public void moveShapes(Shape a)
 	{
-		// move the shapes and check if a player catch any of them
-		// when i wake up
-		
-		
+		int random = (int)(Math.random()*2);
+		a.setPostionX(a.getPostionX()+moves[random].x);
+		a.setPostionY(a.getPostionY()+moves[random].y);	
 	}
+	
+	public boolean checkPlayerCanCatchPlate(Shape a){
+		if(game.player1.getRightHand().CanCatchIt(a))
+		{
+			game.player1.getRightHand().addShape(a);
+			fallingarea.remove(a);
+			return true;
+		}
+		else if(game.player1.getLeftHand().CanCatchIt(a))
+		{
+			game.player1.getLeftHand().addShape(a);
+			fallingarea.remove(a);
+			return true;
+		}
+		else if(game.player2.getRightHand().CanCatchIt(a))
+		{
+			game.player2.getRightHand().addShape(a);
+			fallingarea.remove(a);
+			return true;
+		}
+		else if(game.player2.getRightHand().CanCatchIt(a))
+		{
+			game.player2.getLeftHand().addShape(a);
+			fallingarea.remove(a);
+			return true;
+		}
+		return false;
+	}
+	
 	public void addShape(Shape a)
 	{
 		a.setShapeState(a.getFalling());
@@ -27,6 +79,14 @@ public class FallingArea implements ShapesIterator{
 		return fallingarea.iterator();
 	}
 	
+	public static class node
+	{
+		int x,y;
+		public node(int x,int y) {
+			this.x = x;
+			this.y = y;
+		}
+	}
 	
 	
 }

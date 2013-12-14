@@ -23,14 +23,12 @@ public class GameModel implements ReadOnlyGameModel, UpdateGameModelInfc{
 		 * setting the screen default size (1000*1000) and unresizable
 		 */
 //		TAKE CARE :screen size by default = 768 * 1366
-//		System.out.println(screenSize.height);
-//		System.out.println(screenSize.width);
 		player1   = new Player(-10, 0, 1,this); // early assumptions for the parameters
 		player2   = new Player( 10, 0, 2,this);
 		rightBelt = new Belt(700,1000, this); // some thing like that on the screen
 		leftBelt  = new Belt(0,300, this);  // [0]---------------[10]               [20]---------------[30]//         
 		pool = new ShapesPool();
-		fall = new FallingArea();
+		fall = new FallingArea(this);
 	}
 	
 	public void update(int x1,int y1, int x2,int y2)
@@ -47,7 +45,7 @@ public class GameModel implements ReadOnlyGameModel, UpdateGameModelInfc{
 		leftBelt.addShapesToBelt();
 		rightBelt.moveShapes();
 		leftBelt.moveShapes();
-		fall.moveShapes();	// in it there gonna be check if the player catch it and if it fall of the screen ->pool
+		fall.getIntoAction();	// in it there gonna be check if the player catch it and if it fall of the screen ->pool
 		
 		
 	}

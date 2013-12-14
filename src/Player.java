@@ -33,6 +33,8 @@ public class Player {
 	public int getLefttHandSize() {return lefthand.getHandSize();}
 	public int getScore() {return score;}
 	public String getName() {return name;}
+	public PlayerHand getRightHand() {return righthand;}
+	public PlayerHand getLeftHand() {return lefthand;}
 	
 	public void addShapeToRightHand(Shape a)
 	{

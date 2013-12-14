@@ -4,8 +4,9 @@ import java.util.Stack;
 
 
 public class PlayerHand {
-	Stack<Shape> hand;
-	Player player;
+	private Stack<Shape> hand;
+	private Player player;
+	private int handHeight = 0;
 	public PlayerHand(Player p) {
 		hand = new Stack<Shape>();
 		player = p;
@@ -13,8 +14,19 @@ public class PlayerHand {
 	
 	public int getHandSize() {return hand.size();}
 	
+	public int getHandHeight() {return handHeight;}
+	
+	public boolean CanCatchIt(Shape a)
+	{
+		// need to impelent it
+		
+		return true;
+	}
+	
 	public void addShape(Shape a)
 	{
+		a.setShapeState(a.getWithPlayer());
+		handHeight += (2*a.heightRadius);
 		hand.add(a);
 	}
 	
@@ -40,11 +52,11 @@ public class PlayerHand {
 		}
 		
 	}
-	
 	public void removeTopThreeShapes()
 	{
 		if(getHandSize()<3) return ; //should never happen 
 		for (int i = 0; i < 3; i++) {
+			handHeight -= (hand.peek().heightRadius*2);
 			player.gameModel.pool.addShape(hand.pop());
 		}
 	}
