@@ -68,19 +68,16 @@ public class FallingArea implements Drawable,ShapesIterator{
 		}
 		if(getGameModel().getPlayer1().getLeftHand().CanCatchIt(a))
 		{
-			System.out.println("test2");
 			getGameModel().getPlayer1().getLeftHand().addShape(a);
 			return true;
 		}
 		if(getGameModel().getPlayer2().getRightHand().CanCatchIt(a))
 		{
-			System.out.println("test3");
 			getGameModel().getPlayer2().getRightHand().addShape(a);
 			return true;
 		}
 		if(getGameModel().getPlayer2().getLeftHand().CanCatchIt(a))
 		{
-			System.out.println("test4");
 			getGameModel().getPlayer2().getLeftHand().addShape(a);
 			return true;
 		}
