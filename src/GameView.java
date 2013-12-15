@@ -24,7 +24,6 @@ public class GameView extends JComponent implements Runnable{
 			
 			repaint();
 			gameControl.update();
-			System.out.println("aaaaah");
 			try {
 				gameThread.sleep(40);
 			} catch (InterruptedException e) {

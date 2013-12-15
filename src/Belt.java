@@ -8,13 +8,14 @@ public class Belt implements ShapesIterator,Drawable{
 	private int start, end, position;
 	ArrayList<Shape> line;
 	private int direction = 2;
-	private int spaceBetweenPlates = 5;
+	private int spaceBetweenPlates = 150;
 	private GameModel game;
 	private int stdEnd,stdMinEnd;
 	private BeltState gettingTaller  = new GettingTaller(this);
 	private BeltState gettingSmaller = new GettingSmaller(this);
 	private BeltState currentState ;
 	public Belt(int start, int end, GameModel game) {
+		line = new ArrayList<Shape>();
 		setStart(start);
 		setEnd(end);
 		setStandardMinEnd((end+start)/2);
@@ -22,7 +23,6 @@ public class Belt implements ShapesIterator,Drawable{
 		setGameModel(game);
 		setCurrentBeltState(gettingSmaller);
 		setPosition(game.getScreenSize().height/8);
-		line = new ArrayList<Shape>();
 	}
 	
 	public void setStart(int start) {this.start = start;}
@@ -64,6 +64,11 @@ public class Belt implements ShapesIterator,Drawable{
 	@Override
 	public void drawShape(Graphics g) {		
 		g.drawLine(getStart(), getPosition(), getEnd(), getPosition());
+		Iterator<Shape> itr = createIterator();
+		while(itr.hasNext())
+		{
+			itr.next().drawShape(g);
+		}
 	}
 	
 }

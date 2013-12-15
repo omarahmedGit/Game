@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.Iterator;
 
 
@@ -33,7 +34,8 @@ public class LeftBelt extends Belt{
 	public void moveShapes()
 	{
 		getCurrentState().change();
-		Iterator<Shape> itr = createIterator();
+		ArrayList<Shape> remove = new ArrayList<Shape>();
+ 		Iterator<Shape> itr = createIterator();
 		while(itr.hasNext())
 		{
 			Shape temp = itr.next();
@@ -45,8 +47,11 @@ public class LeftBelt extends Belt{
 			if(temp.getPostionX()>getEnd())
 			{
 				getGameModel().getFallingArea().addShape(temp);
-				line.remove(temp);
+				remove.add(temp);
 			}
+		}
+		for (int i = 0; i < remove.size(); i++) {
+			line.remove(remove.get(i));
 		}
 		
 	}

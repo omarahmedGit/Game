@@ -8,13 +8,13 @@ import java.util.Iterator;
 public class FallingArea implements Drawable,ShapesIterator{
 	ArrayList<Shape> fallingarea;
 	GameModel game;
-	private node[] moves = new node[3];
+	private node[] moves = new node[2];
 	public FallingArea(GameModel game) {
 		fallingarea = new ArrayList<Shape>();
 		setGameModel(game);
 		moves[0] = new node(0 ,1);
-		moves[1] = new node(-1,1);
-		moves[2] = new node(1 ,1);
+//		moves[1] = new node(-1,1);
+		moves[1] = new node(1 ,1);
 		
 	}
 	
@@ -25,29 +25,39 @@ public class FallingArea implements Drawable,ShapesIterator{
 	
 	public void getIntoAction() {
 		Iterator<Shape> itr = createIterator();
-		
+		ArrayList<Shape> remove = new ArrayList<Shape>();
 		while(itr.hasNext())
 		{
 			Shape temp = itr.next();
-			if(checkPlayerCanCatchPlate(temp)) continue;
+			if(checkPlayerCanCatchPlate(temp)){
+				remove.add(temp);
+				continue;
+			}
 			moveShapes(temp);
-			if(checkPlayerCanCatchPlate(temp)) continue;
-			checkReturnToThePool(temp);
+			if(checkPlayerCanCatchPlate(temp)){
+				remove.add(temp);
+				continue;
+			}
+			if(checkReturnToThePool(temp)) remove.add(temp);
+		}
+		for (int i = 0; i < remove.size(); i++) {
+			fallingarea.remove(remove.get(i));
 		}
 	}
 	
-	public void checkReturnToThePool(Shape a)
+	public boolean checkReturnToThePool(Shape a)
 	{
 		if(a.getPostionY()-a.getHeightRadius()>=getGameModel().getScreenSize().height)
 		{
 			getGameModel().getShapesPool().addShape(a);
-			fallingarea.remove(a);
+			return true;
 		}
+		return false;
 	}
 	
 	public void moveShapes(Shape a)
 	{
-		int random = (int)(Math.random()*2);
+		int random = (int)(Math.random()*1);
 		a.setPostionX(a.getPostionX()+moves[random].x);
 		a.setPostionY(a.getPostionY()+moves[random].y);	
 	}
@@ -56,25 +66,21 @@ public class FallingArea implements Drawable,ShapesIterator{
 		if(getGameModel().getPlayer1().getRightHand().CanCatchIt(a))
 		{
 			getGameModel().getPlayer1().getRightHand().addShape(a);
-			fallingarea.remove(a);
 			return true;
 		}
 		else if(getGameModel().getPlayer1().getLeftHand().CanCatchIt(a))
 		{
 			getGameModel().getPlayer1().getLeftHand().addShape(a);
-			fallingarea.remove(a);
 			return true;
 		}
 		else if(getGameModel().getPlayer2().getRightHand().CanCatchIt(a))
 		{
 			getGameModel().getPlayer2().getRightHand().addShape(a);
-			fallingarea.remove(a);
 			return true;
 		}
 		else if(getGameModel().getPlayer2().getRightHand().CanCatchIt(a))
 		{
 			getGameModel().getPlayer2().getLeftHand().addShape(a);
-			fallingarea.remove(a);
 			return true;
 		}
 		return false;

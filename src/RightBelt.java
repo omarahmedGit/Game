@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.Iterator;
 
 
@@ -24,7 +25,7 @@ public class RightBelt extends Belt{
 			}
 		}
 		
-		Shape shape = getGameModel().getShapesPool().getShape();getClass();
+		Shape shape = getGameModel().getShapesPool().getShape();
 		shape.setShapeState(shape.getOnTheLine());
 		shape.setPostionX(getStart()+ shape.getWidthRadius());
 		shape.setPostionY(getPosition()-shape.getHeightRadius());
@@ -34,21 +35,24 @@ public class RightBelt extends Belt{
 	public void moveShapes()
 	{
 		getCurrentState().change();
+		ArrayList<Shape> remove = new ArrayList<Shape>();
 		Iterator<Shape> itr = createIterator();
 		while(itr.hasNext())
 		{
-			Shape temp = itr.next();
-			
-			// move + check if falls
-			
+			Shape temp = (Shape)itr.next();			
 			temp.setPostionX(temp.getPostionX()+getDirection());
 			
 			if(temp.getPostionX()<getEnd())
 			{
 				getGameModel().getFallingArea().addShape(temp);
-				line.remove(temp);
+				remove.add(temp);
 			}
 		}
+		
+		for (int i = 0; i < remove.size(); i++) {
+			line.remove(remove.get(i));
+		}
+		
 	}
 	public boolean checkstdAndcurrentEndTaller()
 	{

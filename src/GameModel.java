@@ -25,7 +25,7 @@ public class GameModel implements ReadOnlyGameModel, UpdateGameModelInfc{
 		int py =(screenSize.height/4)*3;
 		setPlayer1(new Player(p1x,py,1,this));
 		setPlayer2(new Player( p2x,py, 2,this));        
-		setRightBelt(new RightBelt((getScreenSize().width*3)/4,getScreenSize().width, this));
+		setRightBelt(new RightBelt(getScreenSize().width,(getScreenSize().width*3)/4, this));
 		setLeftBelt(new LeftBelt(0,getScreenSize().width/4, this));
 		setShapesPool(new ShapesPool());
 		setFallingArea(new FallingArea(this));
