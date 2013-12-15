@@ -1,7 +1,7 @@
 
 import java.util.*;
 public class ShapesPool {
-	Queue<Shape> pool;
+	private Queue<Shape> pool;
 	final int max_shapes_number = 100;
 	public ShapesPool() {
 		pool = new LinkedList<Shape>();

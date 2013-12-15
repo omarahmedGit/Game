@@ -3,7 +3,7 @@ import java.awt.Color;
 import java.awt.Graphics;
 
 
-public class Shape implements Drawable{
+public class Shape implements Drawable , ShapeObserver{
 	private Color c = Color.BLACK;
 	private int posX;	// center X
 	private int posY;	// center Y
@@ -15,18 +15,6 @@ public class Shape implements Drawable{
 	private ShapeState withPlayer;
 	private ShapeState notVisual;
 	private ShapeState currentState;
-	
-	/* 
-	 * every shape has [as i think] 7 states
-	 * 1- in the pool and not visual on the screen
-	 * 2- on the line belt
-	 * 3- falling in free motion
-	 * 4- a player hold it 
-	 * 		a) with player1 right hand 4
-	 * 		b) with player1 left  hand 5
-	 * 		c) with player2 right hand 6
-	 * 		d) with player2 left  hand 7
-	 */
 	public Shape(){
 		
 	}
@@ -40,8 +28,7 @@ public class Shape implements Drawable{
 		setNotVisual(new ShapeNotVisual(this));
 		setWithPlayer(new ShapeWithPlayer(this));
 		setShapeOnTheLine(new ShapeOnTheLine(this));
-
-		setCurrentState(getNotVisual());
+		setShapeState(getNotVisual());
 	}
 	
 	
@@ -54,6 +41,7 @@ public class Shape implements Drawable{
 	public ShapeState getOnTheLine()	{return   onTheLine;}
 	public ShapeState getWithPlayer()	{return  withPlayer;}
 	public ShapeState getNotVisual()	{return   notVisual;}	
+	public ShapeState getCurrentState()	{return   currentState;}	
 	
 	
 	public void setPostionX(int x) { posX = x;}
@@ -66,11 +54,13 @@ public class Shape implements Drawable{
 	public void setShapeOnTheLine(ShapeOnTheLine state){onTheLine = state;}
 	public void setWithPlayer(ShapeWithPlayer state){withPlayer = state;}
 	public void setNotVisual(ShapeNotVisual state){notVisual = state;}
-	public void setCurrentState(ShapeState state){currentState = state;}
 	
 	@Override
 	public void drawShape(Graphics g) {
-		// TODO Auto-generated method stub
 		
+	}
+	@Override
+	public void updateShape(int newX) {
+		setPostionX(getPostionX()+newX);
 	}
 }

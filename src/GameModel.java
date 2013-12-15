@@ -25,8 +25,8 @@ public class GameModel implements ReadOnlyGameModel, UpdateGameModelInfc{
 		int py =(screenSize.height/4)*3;
 		setPlayer1(new Player(p1x,py,1,this));
 		setPlayer2(new Player( p2x,py, 2,this));        
-		setRightBelt(new Belt(700,1000, this));
-		setLeftBelt(new Belt(0,300, this));
+		setRightBelt(new RightBelt(700,1000, this));
+		setLeftBelt(new LeftBelt(0,300, this));
 		setShapesPool(new ShapesPool());
 		setFallingArea(new FallingArea(this));
 	}
@@ -47,23 +47,19 @@ public class GameModel implements ReadOnlyGameModel, UpdateGameModelInfc{
 	public void setShapesPool(ShapesPool pool) {this.pool = pool;}
 	public void setFallingArea(FallingArea fall){this.fall =fall;}
 	
-	public void update(int x1,int y1, int x2,int y2)
+	public void update(int x1,int x2)
 	{
-		/*		// observer gonna be used when updating the player position then update all plates he holds position  
-		 * 		1) adding shapes to the belt
-		 * 		2) move every shape on the belt into it's direction
-		 * 		3) check if the things on the belt gonna fall down 
-		 * 		4) then check if a shape gonna be in the players hand
-		 * 		5) check if the shapes gonna go down and then added to the pool
+		getPlayer1().updateMovement(x1);
+		getPlayer2().updateMovement(x2);
+		getRightBelt().addShapesToBelt();
+		getLeftBelt().addShapesToBelt();
+		getRightBelt().moveShapes();
+		getLeftBelt().moveShapes();
+		getFallingArea().getIntoAction();
+		/*
+		 * 		
+		 * 		2) update el player hand m3a el movement bta3t el player
 		 */
-		
-		rightBelt.addShapesToBelt();
-		leftBelt.addShapesToBelt();
-		rightBelt.moveShapes();
-		leftBelt.moveShapes();
-		fall.getIntoAction();	// in it there gonna be check if the player catch it and if it fall of the screen ->pool
-		
-		
 	}
 	@Override
 	public ArrayList<Drawable> getShapesArray() {

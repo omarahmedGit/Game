@@ -8,92 +8,61 @@ public class Belt implements ShapesIterator,Drawable{
 	private int start, end, position;
 	ArrayList<Shape> line;
 	private int direction = 2;
-	private int spaceBtweenPlates = 5;
+	private int spaceBetweenPlates = 5;
 	private GameModel game;
+	private int stdEnd,stdMinEnd;
+	private BeltState gettingTaller  = new GettingTaller(this);
+	private BeltState gettingSmaller = new GettingSmaller(this);
+	private BeltState currentState ;
 	public Belt(int start, int end, GameModel game) {
 		setStart(start);
 		setEnd(end);
+		setStandardMinEnd((end+start)/2);
+		setStandardEnd(end);
 		setGameModel(game);
-		position = game.getScreenSize().height/8;
+		setCurrentBeltState(gettingSmaller);
+		setPosition(game.getScreenSize().height/8);
 		line = new ArrayList<Shape>();
-		if(start>end)
-			direction = -1*direction;
 	}
 	
 	public void setStart(int start) {this.start = start;}
 	public void setEnd(int end) {this.end = end;}
 	public void setGameModel(GameModel game){this.game = game;}
+	public void setDirection(int direction) {this.direction = direction;}
+	public void setPosition(int position) {this.position = position;}
+	public void setSpaceBetweenPlates(int space) {this.spaceBetweenPlates= space;}
+	public void setStandardMinEnd(int std) {stdMinEnd = std;}
+	public void setStandardEnd(int std) {stdEnd = std;}
+	public void setCurrentBeltState(BeltState state) {currentState = state;}
 	
 	public int getStart() {return start;}
 	public int getEnd() {return end;}
 	public GameModel getGameModel(){return game;}
-	
+	public int getDirection() {return direction;}
 	public int getPlatesNumber() {return line.size();}
+	public int getPosition() {return position;}
+	public int getSpaceBetweenPlates() {return spaceBetweenPlates;}
+	public int getStdMinEnd() {return stdMinEnd;}
+	public int getStdEnd() {return stdEnd;}
+	public BeltState getTaller() {return gettingTaller;}
+	public BeltState getSmaller() {return gettingSmaller;}
+	public BeltState getCurrentState() {return currentState;}
 	
-	public void addShapesToBelt()
-	{
-		if(getGameModel().getShapesPool().getShapesLeftInThePool()==0){
-			// shouldn't get here ever !
-			return ;
-		}
-		
-		if(getPlatesNumber()>0)
-		{
-			Shape temp = line.get(getPlatesNumber()-1);
-			if(start>end)
-			{
-				if(!(temp.getPostionX()+temp.getWidthRadius()+spaceBtweenPlates<=start)){
-					return ;
-				}
-			}
-			else
-			{
-				if(!(temp.getPostionX()-temp.getWidthRadius()>=start+spaceBtweenPlates)){
-					return ;
-				}
-			}
-		}
-		
-		Shape shape = getGameModel().getShapesPool().getShape();
-		shape.setPostionX(start>end?start + shape.getWidthRadius():start-shape.getWidthRadius());
-		shape.setPostionY(position-shape.getHeightRadius());
-		line.add(shape);
-	}
+	public void addShapesToBelt() {}
+	public void moveShapes() {}
+	public boolean checkstdAndcurrentEndTaller() {return false;}
+	public boolean checkstdAndcurrentEndSmaller() {return false;}
 	
-	public void moveShapes()
-	{
-		Iterator<Shape> itr = createIterator();
-		while(itr.hasNext())
-		{
-			Shape temp = itr.next();
-			
-			// move + check if falls
-			
-			temp.setPostionX(temp.getPostionX()+direction);
-			
-			if(temp.getPostionX()>end&&direction>0)
-			{
-				getGameModel().getFallingArea().addShape(temp);
-				line.remove(temp);
-			}
-			else if(temp.getPostionX()<end&&direction<0)
-			{
-				getGameModel().getFallingArea().addShape(temp);
-				line.remove(temp);
-			}
-		}
-		
-	}
-
+	public void makeItTaller() { setEnd(getEnd()+getDirection()); }
+	public void makeItSmaller(){ setEnd(getEnd()-getDirection()); }
+	
 	@Override
 	public Iterator<Shape> createIterator() {
 		return line.iterator();
 	}
 
 	@Override
-	public void drawShape(Graphics g) {
-		// TODO Auto-generated method stub
-		
+	public void drawShape(Graphics g) {		
 		
 	}
 	

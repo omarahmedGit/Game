@@ -1,9 +1,10 @@
 
 import java.awt.Color;
+import java.util.Iterator;
 import java.util.Stack;
 
 
-public class PlayerHand {
+public class PlayerHand implements ShapesIterator{
 	private Stack<Shape> hand;
 	private Player player;
 	private int handHeight;
@@ -85,5 +86,10 @@ public class PlayerHand {
 			setHandHeight(getHandHeight()+(hand.peek().getHeightRadius()*2));
 			getPlayer().getGameModel().getShapesPool().addShape(hand.pop());
 		}
+	}
+
+	@Override
+	public Iterator<Shape> createIterator() {
+		return hand.iterator();
 	}
 }

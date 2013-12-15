@@ -1,10 +1,11 @@
 import java.awt.Graphics;
 import java.awt.Image;
+import java.util.Iterator;
 
 import javax.swing.ImageIcon;
 
 
-public class Player implements Drawable{
+public class Player implements Drawable , PlayerObserver {
 	private PlayerHand righthand;
 	private PlayerHand lefthand;
 	private int posX; // top left X
@@ -56,6 +57,24 @@ public class Player implements Drawable{
 	public int getWidht()  {return 	width;}
 	public GameModel getGameModel(){return gameModel;}
 	
+	public void updateMovement(int newX)
+	{
+		getRightHand().setXPos(getRightHand().getXPos()+newX);
+		getLeftHand().setXPos(getLeftHand().getXPos()+newX);
+		Iterator<Shape> itr = getRightHand().createIterator();
+		while(itr.hasNext())
+		{
+			Shape temp = itr.next();
+			temp.updateShape(newX);
+		}
+		itr = getLeftHand().createIterator();
+		while(itr.hasNext())
+		{
+			Shape temp = itr.next();
+			temp.updateShape(newX);
+		}
+	}
+	
 	public void addShapeToRightHand(Shape a)
 	{
 		righthand.addShape(a);
@@ -71,7 +90,6 @@ public class Player implements Drawable{
 		righthand.checkIfThreePlatesOfTheSameColor();
 		lefthand.checkIfThreePlatesOfTheSameColor();
 	}
-	
 	public void incrementPlayerScore() {setScore(getScore()+1);}
 
 	@Override

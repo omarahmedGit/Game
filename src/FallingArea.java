@@ -23,11 +23,6 @@ public class FallingArea implements ShapesIterator{
 	public void setGameModel(GameModel game) {this.game=game;}
 	
 	public void getIntoAction() {
-		/*
-		 *		1) check if player can catch it before it falls
-		 *		2) move it if the player can't catch it
-		 *		3) check if the player can catch it after the move  
-		 */
 		Iterator<Shape> itr = createIterator();
 		
 		while(itr.hasNext())
@@ -35,7 +30,17 @@ public class FallingArea implements ShapesIterator{
 			Shape temp = itr.next();
 			if(checkPlayerCanCatchPlate(temp)) continue;
 			moveShapes(temp);
-			checkPlayerCanCatchPlate(temp);
+			if(checkPlayerCanCatchPlate(temp)) continue;
+			checkReturnToThePool(temp);
+		}
+	}
+	
+	public void checkReturnToThePool(Shape a)
+	{
+		if(a.getPostionY()-a.getHeightRadius()>=getGameModel().getScreenSize().height)
+		{
+			getGameModel().getShapesPool().addShape(a);
+			fallingarea.remove(a);
 		}
 	}
 	
