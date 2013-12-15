@@ -57,17 +57,18 @@ public class PlayerHand implements Drawable,ShapesIterator{
 		a.setPostionY(getHandHeight()-a.getHeightRadius());
 		setHandHeight(getHandHeight() - (2*a.getHeightRadius()));
 		hand.add(a);
+		checkIfThreePlatesOfTheSameColor();
 	}
 	
 	
 	public void checkIfThreePlatesOfTheSameColor()
 	{
-		if(getHandSize()<3) return ;
+		if(getHandSize()<3) return ;	
 		Stack<Shape> temp = new Stack<Shape>();
-		Color testEquality = temp.peek().getColor() ;
+		Color testEquality = hand.peek().getColor() ;
 		Boolean checkPlates = true;
 		for (int i = 0; i < 3; i++) {
-			if(!testEquality.equals(hand.peek().getColor())) {
+			if(!(testEquality.getRGB()==hand.peek().getColor().getRGB())) {
 				checkPlates = false ;
 			}
 			temp.add(hand.pop());

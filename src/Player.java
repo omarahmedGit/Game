@@ -96,11 +96,6 @@ public class Player implements Drawable , PlayerObserver {
 		getLeftHand().addShape(a);
 	}
 	
-	public void checkToRemovePlatesWithSameColor()
-	{
-		getRightHand().checkIfThreePlatesOfTheSameColor();
-		getLeftHand().checkIfThreePlatesOfTheSameColor();
-	}
 	public void incrementPlayerScore() {setScore(getScore()+1);}
 
 	@Override

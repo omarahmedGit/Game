@@ -8,8 +8,8 @@ import java.util.ArrayList;
 public class GameModel implements ReadOnlyGameModel, UpdateGameModelInfc{
 	private Player player1;
 	private Player player2;
-	private Belt rightBelt;
-	private Belt leftBelt;
+	private Belt topRightBelt;
+	private Belt topLeftBelt;
 	private ShapesPool pool;
 	private FallingArea fall;
 	private Dimension gameDimension;
@@ -34,16 +34,16 @@ public class GameModel implements ReadOnlyGameModel, UpdateGameModelInfc{
 	public Dimension getScreenSize() {return gameDimension;}
 	public Player getPlayer1() {return player1;}
 	public Player getPlayer2() {return player2;}
-	public Belt	getRightBelt() {return rightBelt;}
-	public Belt	getLeftBelt()  {return  leftBelt;}
+	public Belt	getRightBelt() {return topRightBelt;}
+	public Belt	getLeftBelt()  {return  topLeftBelt;}
 	public ShapesPool getShapesPool() {return pool;}
 	public FallingArea getFallingArea() {return fall;}
 	
 	public void setDimension(Dimension dimension){gameDimension = dimension;}
 	public void setPlayer1(Player player){player1 = player;}
 	public void setPlayer2(Player player){player2 = player;}
-	public void setRightBelt(Belt belt) {rightBelt = belt;}
-	public void setLeftBelt(Belt belt) {leftBelt = belt;}
+	public void setRightBelt(Belt belt) {topRightBelt = belt;}
+	public void setLeftBelt(Belt belt) {topLeftBelt = belt;}
 	public void setShapesPool(ShapesPool pool) {this.pool = pool;}
 	public void setFallingArea(FallingArea fall){this.fall =fall;}
 	

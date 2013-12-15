@@ -11,9 +11,9 @@ public class MyKeyListner extends KeyAdapter{
 	public void keyPressed(KeyEvent e) {
 		int keyCode=e.getKeyCode();
 		if (keyCode==KeyEvent.VK_LEFT){
-			gameView.arrowPressed(-5);			
+			gameView.arrowPressed(-10);			
 		}else if(keyCode==KeyEvent.VK_RIGHT){
-			gameView.arrowPressed(5);
+			gameView.arrowPressed(10);
 		}
 		else if (keyCode==KeyEvent.VK_ESCAPE){
 			
