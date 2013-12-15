@@ -1,6 +1,7 @@
 
 import java.awt.Color;
 import java.awt.Graphics;
+import java.awt.Graphics2D;
 import java.util.Iterator;
 import java.util.Stack;
 
@@ -66,8 +67,10 @@ public class PlayerHand implements Drawable,ShapesIterator{
 		Color testEquality = temp.peek().getColor() ;
 		Boolean checkPlates = true;
 		for (int i = 0; i < 3; i++) {
+			if(!testEquality.equals(hand.peek().getColor())) {
+				checkPlates = false ;
+			}
 			temp.add(hand.pop());
-			if(!testEquality.equals(temp.peek().getColor())) checkPlates = false ;
 		}
 		while(!temp.isEmpty())
 		{

@@ -1,6 +1,7 @@
 
 import java.awt.Color;
 import java.awt.Graphics;
+import java.awt.Graphics2D;
 
 
 public class Shape implements Drawable , ShapeObserver{
@@ -57,7 +58,8 @@ public class Shape implements Drawable , ShapeObserver{
 	
 	@Override
 	public void drawShape(Graphics g) {
-		g.fillRect(getPostionX()-getWidthRadius(), getPostionY()-getHeightRadius(), getWidthRadius()*2, getHeightRadius()*2);
+		g.setColor(getColor());
+		g.fillOval(getPostionX()-getWidthRadius(), getPostionY()-getHeightRadius(), getWidthRadius()*2, getHeightRadius()*2);
 	}
 	@Override
 	public void updateShape(int newX) {

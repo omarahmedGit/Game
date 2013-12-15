@@ -1,6 +1,9 @@
 
 
+import java.awt.BasicStroke;
+import java.awt.Color;
 import java.awt.Graphics;
+import java.awt.Graphics2D;
 import java.util.ArrayList;
 import java.util.Iterator;
 
@@ -63,12 +66,17 @@ public class Belt implements ShapesIterator,Drawable{
 
 	@Override
 	public void drawShape(Graphics g) {		
-		g.drawLine(getStart(), getPosition(), getEnd(), getPosition());
+		
 		Iterator<Shape> itr = createIterator();
 		while(itr.hasNext())
 		{
 			itr.next().drawShape(g);
 		}
+		Graphics2D fat = (Graphics2D) g;
+		fat.setColor(Color.blue);
+		fat.setStroke(new BasicStroke(4));
+		fat.drawLine(getStart(), getPosition(), getEnd(), getPosition());
+		
 	}
 	
 }

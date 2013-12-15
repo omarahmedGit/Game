@@ -1,6 +1,7 @@
 
 import java.awt.Color;
 import java.awt.Graphics;
+import java.awt.Graphics2D;
 
 
 public class Shape2 extends Shape{
@@ -14,8 +15,6 @@ public class Shape2 extends Shape{
 	}
 	@Override
 	public void drawShape(Graphics g) {
-		// TODO Auto-generated method stub
-//		test
 		g.setColor(Color.black);
 		g.drawRect(this.getPostionX(),this.getPostionY() ,this.getWidthRadius() ,this.getHeightRadius());
 		

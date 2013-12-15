@@ -1,4 +1,5 @@
 import java.awt.Graphics;
+import java.awt.Graphics2D;
 
 import javax.swing.JComponent;
 
@@ -35,7 +36,6 @@ public class GameView extends JComponent implements Runnable{
 		}
 		
 	}
-	@Override
 	public void paintComponent(Graphics g){
 		for (int i = 0; i < gameModel.getShapesArray().size(); i++) {
 			gameModel.getShapesArray().get(i).drawShape(g);
