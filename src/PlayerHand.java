@@ -31,10 +31,6 @@ public class PlayerHand implements Drawable,ShapesIterator{
 	public void setTolerance(int tolerance) {this.tolerance = tolerance;}
 	public void setPlayer(Player player) {this.player = player;}
 	public void setXPos(int x) {
-		System.out.println(x);
-		if(x<0){
-			System.out.println("sajkhdksjahdjksajdklsajdl");
-		}
 		xPos = x;
 		xPosEnd = x + getPlayer().getWidht()/3;
 	}
@@ -47,7 +43,6 @@ public class PlayerHand implements Drawable,ShapesIterator{
 		{
 			int leftCorner = a.getPostionX()-a.getWidthRadius();
 			int rightCorner= a.getPostionX()+a.getWidthRadius();
-			System.out.println(getXPos() +" "+leftCorner);
 			if(rightCorner<=getXPosEnd()&rightCorner>=getXPos()) return true;
 			if(leftCorner>=getXPos()&&rightCorner<=getXPosEnd()) return true;
 			if(rightCorner>=getXPosEnd()&&leftCorner<=getXPos()) return true;
