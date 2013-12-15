@@ -63,7 +63,7 @@ public class Belt implements ShapesIterator,Drawable{
 
 	@Override
 	public void drawShape(Graphics g) {		
-		
+		g.drawLine(getStart(), getPosition(), getEnd(), getPosition());
 	}
 	
 }
