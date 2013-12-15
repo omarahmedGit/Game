@@ -15,7 +15,9 @@ public class Shape2 extends Shape{
 	@Override
 	public void drawShape(Graphics g) {
 		// TODO Auto-generated method stub
+//		test
+		g.setColor(Color.black);
+		g.drawRect(this.getPostionX(),this.getPostionY() ,this.getWidthRadius() ,this.getHeightRadius());
 		
 	}
-
 }

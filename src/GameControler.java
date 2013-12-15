@@ -14,6 +14,7 @@ public class GameControler implements Updator {
 		// TODO Auto-generated method stub
 //		test
 		gameModel.updateShapePos(1, 1);
+		gameModel.update(1, 1);
 		
 	}
 

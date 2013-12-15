@@ -49,8 +49,8 @@ public class GameModel implements ReadOnlyGameModel, UpdateGameModelInfc{
 	
 	public void update(int x1,int x2)
 	{
-		getPlayer1().updateMovement(x1);
-		getPlayer2().updateMovement(x2);
+//		getPlayer1().updateMovement(x1);
+//		getPlayer2().updateMovement(x2);
 		getRightBelt().addShapesToBelt();
 		getLeftBelt().addShapesToBelt();
 		getRightBelt().moveShapes();
