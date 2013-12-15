@@ -20,13 +20,11 @@ public class GameView extends JComponent implements Runnable{
 		this.addKeyListener(new MyKeyListner(this));
 		this.addMouseMotionListener(new MyMouseListener(this));
 		gameThread.start();
-		
 	}
 
 	public void run() {
 		// TODO Auto-generated method stub
 		while(running){
-			
 			repaint();
 			gameControl.update();
 			try {
