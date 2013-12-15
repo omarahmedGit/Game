@@ -47,10 +47,14 @@ public class GameModel implements ReadOnlyGameModel, UpdateGameModelInfc{
 	public void setShapesPool(ShapesPool pool) {this.pool = pool;}
 	public void setFallingArea(FallingArea fall){this.fall =fall;}
 	
-	public void update(int x1,int x2)
+	public void updatePlayer1(int x){
+		getPlayer1().updateMovement(x);
+	}
+	public void updatePlayer2(int x){
+		getPlayer2().updateMovement(x);
+	}
+	public void update()
 	{
-//		getPlayer1().updateMovement(x1);
-//		getPlayer2().updateMovement(x2);
 		getRightBelt().addShapesToBelt();
 		getLeftBelt().addShapesToBelt();
 		getRightBelt().moveShapes();

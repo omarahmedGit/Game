@@ -15,6 +15,10 @@ public class GameView extends JComponent implements Runnable{
 		gameControl =control;
 		gameThread=new Thread(this);
 		running=true;
+	    this.setFocusable(true);
+	    this.requestFocus();
+		this.addKeyListener(new MyKeyListner(this));
+		this.addMouseMotionListener(new MyMouseListener(this));
 		gameThread.start();
 		
 	}
@@ -41,6 +45,14 @@ public class GameView extends JComponent implements Runnable{
 			gameModel.getShapesArray().get(i).drawShape(g);
 		}
 	}
+	public void arrowPressed(int i){
+		gameControl.updatePlayer1KeyBoard(i);
+	}
 
+	public void mouseMoved(int x) {
+		// TODO Auto-generated method stub
+		gameControl.updatePlayer2Mouse(x);
+		
+	}
 	
 }
