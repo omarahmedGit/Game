@@ -21,7 +21,6 @@ public class GameControler implements Updator {
 	@Override
 	public void update() {
 		gameModel.update();
-
 	}
 
 }

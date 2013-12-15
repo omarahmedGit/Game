@@ -61,18 +61,18 @@ public class Player implements Drawable , PlayerObserver {
 	public void updateByMouse(int x)
 	{
 		setPosX(x);
-		getRightHand().setXPos(x);
-		getLeftHand().setXPos(x);
+		getRightHand().setXPos((getPosX() + (getPosX()*2)/3));
+//		System.out.println(getPosX() + " " + x);
+//		System.out.println("Right hand mouse : "+ getRightHand().getXPos());
 		int mid = (getRightHand().getXPos()+getRightHand().getXPosEnd())/2;
-		
 		Iterator<Shape> itr = getRightHand().createIterator();
-		
 		while(itr.hasNext())
 		{
 			Shape temp = itr.next();
 			temp.updateShape(mid);
 		}
 		
+		getLeftHand().setXPos(getPosX());
 		mid = (getLeftHand().getXPos()+getLeftHand().getXPosEnd()) /2 ;
 		
 		itr = getLeftHand().createIterator();
