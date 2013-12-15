@@ -57,7 +57,7 @@ public class Shape implements Drawable , ShapeObserver{
 	
 	@Override
 	public void drawShape(Graphics g) {
-		
+		g.drawRect(getPostionX()-getWidthRadius(), getPostionY()-getHeightRadius(), getWidthRadius()*2, getHeightRadius()*2);
 	}
 	@Override
 	public void updateShape(int newX) {

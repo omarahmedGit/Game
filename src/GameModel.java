@@ -25,8 +25,8 @@ public class GameModel implements ReadOnlyGameModel, UpdateGameModelInfc{
 		int py =(screenSize.height/4)*3;
 		setPlayer1(new Player(p1x,py,1,this));
 		setPlayer2(new Player( p2x,py, 2,this));        
-		setRightBelt(new RightBelt(700,1000, this));
-		setLeftBelt(new LeftBelt(0,300, this));
+		setRightBelt(new RightBelt((getScreenSize().width*3)/4,getScreenSize().width, this));
+		setLeftBelt(new LeftBelt(0,getScreenSize().width/4, this));
 		setShapesPool(new ShapesPool());
 		setFallingArea(new FallingArea(this));
 	}
@@ -56,27 +56,20 @@ public class GameModel implements ReadOnlyGameModel, UpdateGameModelInfc{
 		getRightBelt().moveShapes();
 		getLeftBelt().moveShapes();
 		getFallingArea().getIntoAction();
-		/*
-		 * 		
-		 * 		2) update el player hand m3a el movement bta3t el player
-		 */
 	}
 	@Override
 	public ArrayList<Drawable> getShapesArray() {
-//		returns all things that must be drawn(implements Drawable) in an arraylist
-//		test test
-		ArrayList<Drawable> d=new ArrayList<Drawable>();
-		d.add(s);
-		d.add(player1);
-		d.add(player2);
-		return d;
+		ArrayList<Drawable> drawingList=new ArrayList<Drawable>();
+		drawingList.add(getPlayer1());
+		drawingList.add(getPlayer2());
+		drawingList.add(getRightBelt());
+		drawingList.add(getLeftBelt());
+		drawingList.add(getFallingArea());
+		return drawingList;
 	}
-//	
 	@Override
 	public void updateShapePos(int x, int y) {
-		// TODO Auto-generated method stub
-//		s.posX=s.posX+x;
-//		s.posY=s.posY+y;
+		
 	}
 	
 	

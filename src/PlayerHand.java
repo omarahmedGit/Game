@@ -1,10 +1,11 @@
 
 import java.awt.Color;
+import java.awt.Graphics;
 import java.util.Iterator;
 import java.util.Stack;
 
 
-public class PlayerHand implements ShapesIterator{
+public class PlayerHand implements Drawable,ShapesIterator{
 	private Stack<Shape> hand;
 	private Player player;
 	private int handHeight;
@@ -91,5 +92,14 @@ public class PlayerHand implements ShapesIterator{
 	@Override
 	public Iterator<Shape> createIterator() {
 		return hand.iterator();
+	}
+
+	@Override
+	public void drawShape(Graphics g) {
+		Iterator<Shape> itr = createIterator();
+		while(itr.hasNext())
+		{
+			itr.next().drawShape(g);
+		}		
 	}
 }

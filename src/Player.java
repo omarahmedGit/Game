@@ -77,25 +77,25 @@ public class Player implements Drawable , PlayerObserver {
 	
 	public void addShapeToRightHand(Shape a)
 	{
-		righthand.addShape(a);
+		getRightHand().addShape(a);
 	}
 	
 	public void addShapeToLeftHand(Shape a)
 	{
-		lefthand.addShape(a);
+		getLeftHand().addShape(a);
 	}
 	
 	public void checkToRemovePlatesWithSameColor()
 	{
-		righthand.checkIfThreePlatesOfTheSameColor();
-		lefthand.checkIfThreePlatesOfTheSameColor();
+		getRightHand().checkIfThreePlatesOfTheSameColor();
+		getLeftHand().checkIfThreePlatesOfTheSameColor();
 	}
 	public void incrementPlayerScore() {setScore(getScore()+1);}
 
 	@Override
 	public void drawShape(Graphics g) {
-		// TODO Auto-generated method stub
 		g.drawImage(image, posX,posY,width,height,null);
-		
+		getRightHand().drawShape(g);
+		getLeftHand().drawShape(g);
 	}
 }

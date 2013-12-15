@@ -1,10 +1,11 @@
 
+import java.awt.Graphics;
 import java.util.ArrayList;
 import java.util.Iterator;
 
 
 
-public class FallingArea implements ShapesIterator{
+public class FallingArea implements Drawable,ShapesIterator{
 	ArrayList<Shape> fallingarea;
 	GameModel game;
 	private node[] moves = new node[3];
@@ -95,6 +96,15 @@ public class FallingArea implements ShapesIterator{
 		public node(int x,int y) {
 			this.x = x;
 			this.y = y;
+		}
+	}
+
+	@Override
+	public void drawShape(Graphics g) {
+		Iterator<Shape> itr = createIterator();
+		while(itr.hasNext())
+		{
+			itr.next().drawShape(g);
 		}
 	}
 	
