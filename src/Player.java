@@ -26,7 +26,7 @@ public class Player implements Drawable , PlayerObserver {
 		setHeight(gameModel.getScreenSize().height/4);
 		setPosX(x);
 		setPosY(y);
-		setRightHand(new PlayerHand(this,(getPosX() + (getWidht()*2)/3)));
+		setRightHand(new PlayerHand(this,(getPosX() + getPosX()*2/3)));
 		setLeftHand(new PlayerHand(this, getPosX()));
 		
 		ImageIcon i=new ImageIcon("p"+ID+".png");
@@ -61,7 +61,9 @@ public class Player implements Drawable , PlayerObserver {
 	public void updateByMouse(int x)
 	{
 		setPosX(x);
-		getRightHand().setXPos(getPosX()+(getWidht()*2)/3);
+		getRightHand().setXPos((getPosX() + (getPosX()*2)/3));
+//		System.out.println(getPosX() + " " + x);
+//		System.out.println("Right hand mouse : "+ getRightHand().getXPos());
 		int mid = (getRightHand().getXPos()+getRightHand().getXPosEnd())/2;
 		Iterator<Shape> itr = getRightHand().createIterator();
 		while(itr.hasNext())

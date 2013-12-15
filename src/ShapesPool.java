@@ -32,5 +32,10 @@ public class ShapesPool {
 		a.setShapeState(a.getNotVisual()); // changing the state from any thing to not visual [adding it to the pool]
 		pool.add(a);
 	}
+
+	public void addNewShape(Class loadClass) {
+		// TODO Auto-generated method stub
+		ShapesFactory.addShapeType(loadClass);
+	}
 	
 }

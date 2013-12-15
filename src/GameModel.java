@@ -71,6 +71,11 @@ public class GameModel implements ReadOnlyGameModel, UpdateGameModelInfc{
 		drawingList.add(getFallingArea());
 		return drawingList;
 	}
+	@Override
+	public void addShape(Class loadClass) {
+		// TODO Auto-generated method stub
+		pool.addNewShape(loadClass);
+	}
 	
 	
 }

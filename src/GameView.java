@@ -9,7 +9,7 @@ public class GameView extends JComponent implements Runnable{
 	private Updator gameControl;
 	private Thread gameThread;
 	private boolean isRunning;
-//	private MyMenu2 myMenu;
+	private MyMenu2 myMenu;
 	
 	public GameView(ReadOnlyGameModel model ,Updator control) {
 		gameModel=  model;
@@ -20,7 +20,7 @@ public class GameView extends JComponent implements Runnable{
 	    this.requestFocus();
 		this.addKeyListener(new MyKeyListner(this));
 		this.addMouseMotionListener(new MyMouseListener(this));
-//		myMenu=new MyMenu2(this);
+		myMenu=new MyMenu2(this);
 		gameThread.start();
 		
 	}
@@ -65,7 +65,7 @@ public class GameView extends JComponent implements Runnable{
 			System.out.println("111111111111");
 		}
 		else{
-//			myMenu.setVisible(false);
+			myMenu.setVisible(false);
 			System.out.println("22222222222222222");
 
 		}
@@ -74,7 +74,7 @@ public class GameView extends JComponent implements Runnable{
 	
 	private void pause(){
 		isRunning=false;
-//		myMenu.setVisible(true);
+		myMenu.setVisible(true);
 		try {
 			gameThread.join();
 		} catch (InterruptedException e) {
@@ -90,7 +90,7 @@ public class GameView extends JComponent implements Runnable{
 
 	public void loadShape(Class loadClass) {
 		// TODO Auto-generated method stub
-//		gameControl.loadShape(loadClass);
+		gameControl.loadShape(loadClass);
 	}
 
 }

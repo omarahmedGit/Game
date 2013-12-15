@@ -14,9 +14,10 @@ public class ShapesFactory {
 	
 	public int getClassListLength() {return shapeType.size();}
 	
-	public void addShapeType(Class shape)
+	public static void addShapeType(Class shape)
 	{
 		shapeType.add(shape);
+		System.out.println("tttttttttttttttttttttttttt"+shapeType.size());
 	}
 	
 	public Shape getShape(){

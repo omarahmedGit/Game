@@ -23,4 +23,11 @@ public class GameControler implements Updator {
 		gameModel.update();
 	}
 
+	@Override
+	public void loadShape(Class loadClass) {
+		// TODO Auto-generated method stub
+		gameModel.addShape(loadClass);
+		
+	}
+
 }

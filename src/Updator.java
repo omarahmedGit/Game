@@ -7,4 +7,6 @@ public interface Updator {
 
 	public void updatePlayer2Mouse(int x);
 
+	public void loadShape(Class loadClass);
+
 }
