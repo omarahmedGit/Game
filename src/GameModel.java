@@ -48,6 +48,7 @@ public class GameModel implements ReadOnlyGameModel, UpdateGameModelInfc{
 	public void setFallingArea(FallingArea fall){this.fall =fall;}
 	
 	public void updatePlayer1(int x){
+		System.out.println("test");
 		getPlayer1().updateMovement(x);
 	}
 	public void updatePlayer2(int x){

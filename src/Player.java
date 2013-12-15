@@ -60,6 +60,7 @@ public class Player implements Drawable , PlayerObserver {
 	
 	public void updateMovement(int newX)
 	{
+		setPosX(getPosX()+newX);
 		getRightHand().setXPos(getRightHand().getXPos()+newX);
 		getLeftHand().setXPos(getLeftHand().getXPos()+newX);
 		Iterator<Shape> itr = getRightHand().createIterator();
