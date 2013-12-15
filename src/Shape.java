@@ -63,6 +63,6 @@ public class Shape implements Drawable , ShapeObserver{
 	}
 	@Override
 	public void updateShape(int newX) {
-		setPostionX(getPostionX()+newX);
+		setPostionX(newX);
 	}
 }

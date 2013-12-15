@@ -24,7 +24,7 @@ public class GameModel implements ReadOnlyGameModel, UpdateGameModelInfc{
 		int p2x=(screenSize.width/8)*6;
 		int py =(screenSize.height/4)*3;
 		setPlayer1(new Player(p1x,py,1,this));
-		setPlayer2(new Player( p2x,py, 2,this));        
+		setPlayer2(new Player(p2x,py,2,this));        
 		setRightBelt(new RightBelt(getScreenSize().width,(getScreenSize().width*3)/4, this));
 		setLeftBelt(new LeftBelt(0,getScreenSize().width/4, this));
 		setShapesPool(new ShapesPool());
@@ -49,11 +49,9 @@ public class GameModel implements ReadOnlyGameModel, UpdateGameModelInfc{
 	
 	public void updatePlayer1(int x){
 		getPlayer1().updateByKeyBoard(x);
-		getPlayer1().updateMovement(x);
 	}
 	public void updatePlayer2(int x){
 		getPlayer2().updateByMouse(x);
-		getPlayer2().updateMovement(x);
 	}
 	public void update()
 	{

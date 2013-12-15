@@ -26,7 +26,7 @@ public class Player implements Drawable , PlayerObserver {
 		setHeight(gameModel.getScreenSize().height/4);
 		setPosX(x);
 		setPosY(y);
-		setRightHand(new PlayerHand(this, (getPosX() + getPosX()*2/3)));
+		setRightHand(new PlayerHand(this,(getPosX() + getPosX()*2/3)));
 		setLeftHand(new PlayerHand(this, getPosX()));
 		
 		ImageIcon i=new ImageIcon("p"+ID+".png");
@@ -58,32 +58,48 @@ public class Player implements Drawable , PlayerObserver {
 	public int getWidht()  {return 	width;}
 	public GameModel getGameModel(){return gameModel;}
 	
-	public void updateMovement(int newX)
+	public void updateByMouse(int x)
 	{
-		getRightHand().setXPos(getRightHand().getXPos()+newX);
-		getLeftHand().setXPos(getLeftHand().getXPos()+newX);
+		setPosX(x);
+		getRightHand().setXPos(x);
+		getLeftHand().setXPos(x);
+		int mid = (getRightHand().getXPos()+getRightHand().getXPosEnd())/2;
+		
 		Iterator<Shape> itr = getRightHand().createIterator();
+		
 		while(itr.hasNext())
 		{
 			Shape temp = itr.next();
-			temp.updateShape(newX);
+			temp.updateShape(mid);
 		}
+		
+		mid = (getLeftHand().getXPos()+getLeftHand().getXPosEnd()) /2 ;
+		
 		itr = getLeftHand().createIterator();
 		while(itr.hasNext())
 		{
 			Shape temp = itr.next();
-			temp.updateShape(newX);
+			temp.updateShape(mid);
 		}
-	}
-	
-	public void updateByMouse(int x)
-	{
-		setPosX(x);
 	}
 	
 	public void updateByKeyBoard(int x)
 	{
 		setPosX(getPosX()+x);
+		getRightHand().setXPos(getRightHand().getXPos()+x);
+		getLeftHand().setXPos(getLeftHand().getXPos()+x);
+		Iterator<Shape> itr = getRightHand().createIterator();
+		while(itr.hasNext())
+		{
+			Shape temp = itr.next();
+			temp.updateShape(x+temp.getPostionX());
+		}
+		itr = getLeftHand().createIterator();
+		while(itr.hasNext())
+		{
+			Shape temp = itr.next();
+			temp.updateShape(x+temp.getPostionX());
+		}
 	}
 	
 	public void addShapeToRightHand(Shape a)

@@ -9,11 +9,6 @@ public class GameControler implements Updator {
 	}
 
 	@Override
-	public void update() {
-		gameModel.update();
-	}
-
-	@Override
 	public void updatePlayer1KeyBoard(int i) {
 		gameModel.updatePlayer1(i);
 	}
@@ -21,6 +16,12 @@ public class GameControler implements Updator {
 	@Override
 	public void updatePlayer2Mouse(int x) {
 		gameModel.updatePlayer2(x);
+	}
+
+	@Override
+	public void update() {
+		// TODO Auto-generated method stub
+		
 	}
 
 }

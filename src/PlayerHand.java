@@ -16,8 +16,7 @@ public class PlayerHand implements Drawable,ShapesIterator{
 		hand = new Stack<Shape>();
 		setPlayer(p);
 		setXPos(xPos);
-		setXPosEnd(xPos + player.getWidht()/3);
-		setHandHeight(player.getPosY());
+		setHandHeight(getPlayer().getPosY());
 	}
 	
 	public int getHandSize() {return hand.size();}
@@ -28,11 +27,13 @@ public class PlayerHand implements Drawable,ShapesIterator{
 	public Player getPlayer() {return player;}
 	
 	public void setHandHeight(int height) {handHeight = height;}
-	public void setXPos(int x) {xPos = x;}
 	public void setXPosEnd(int xEnd) {xPosEnd = xEnd;}
 	public void setTolerance(int tolerance) {this.tolerance = tolerance;}
 	public void setPlayer(Player player) {this.player = player;}
-	
+	public void setXPos(int x) {
+		xPos = x;
+		xPosEnd = x + getPlayer().getWidht()/3;
+	}
 	
 	
 	public boolean CanCatchIt(Shape a)
@@ -42,10 +43,11 @@ public class PlayerHand implements Drawable,ShapesIterator{
 		{
 			int leftCorner = a.getPostionX()-a.getWidthRadius();
 			int rightCorner= a.getPostionX()+a.getWidthRadius();
-			if(rightCorner<=xPosEnd&rightCorner>=xPos) return true;
-			if(leftCorner>=xPos&&rightCorner<=xPosEnd) return true;
-			if(rightCorner>=xPosEnd&&leftCorner<=xPos) return true;
-			if(rightCorner<=xPosEnd&&leftCorner>=xPos) return true;
+			System.out.println(getXPos() +" "+leftCorner);
+			if(rightCorner<=getXPosEnd()&rightCorner>=getXPos()) return true;
+			if(leftCorner>=getXPos()&&rightCorner<=getXPosEnd()) return true;
+			if(rightCorner>=getXPosEnd()&&leftCorner<=getXPos()) return true;
+			if(rightCorner<=getXPosEnd()&&leftCorner>=getXPos()) return true;
 		}
 		return false;
 	}

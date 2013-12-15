@@ -13,10 +13,7 @@ public class FallingArea implements Drawable,ShapesIterator{
 	public FallingArea(GameModel game) {
 		fallingarea = new ArrayList<Shape>();
 		setGameModel(game);
-		moves[0] = new node(0 ,1);
-//		moves[1] = new node(-1,1);
-		moves[1] = new node(1 ,1);
-		
+		moves[0] = new node(0 ,3);
 	}
 	
 	public GameModel getGameModel() {return game;}
@@ -58,29 +55,32 @@ public class FallingArea implements Drawable,ShapesIterator{
 	
 	public void moveShapes(Shape a)
 	{
-		int random = (int)(Math.random()*1);
-		a.setPostionX(a.getPostionX()+moves[random].x);
-		a.setPostionY(a.getPostionY()+moves[random].y);	
+		a.setPostionX(a.getPostionX()+moves[0].x);
+		a.setPostionY(a.getPostionY()+moves[0].y);	
 	}
 	
 	public boolean checkPlayerCanCatchPlate(Shape a){
-		if(getGameModel().getPlayer1().getRightHand().CanCatchIt(a))
+//		if(getGameModel().getPlayer1().getRightHand().CanCatchIt(a))
+//		{
+//			System.out.println("test1");
+//			getGameModel().getPlayer1().getRightHand().addShape(a);
+//			return true;
+//		}
+//		if(getGameModel().getPlayer1().getLeftHand().CanCatchIt(a))
+//		{
+//			System.out.println("test2");
+//			getGameModel().getPlayer1().getLeftHand().addShape(a);
+//			return true;
+//		}
+		if(getGameModel().getPlayer2().getRightHand().CanCatchIt(a))
 		{
-			getGameModel().getPlayer1().getRightHand().addShape(a);
-			return true;
-		}
-		else if(getGameModel().getPlayer1().getLeftHand().CanCatchIt(a))
-		{
-			getGameModel().getPlayer1().getLeftHand().addShape(a);
-			return true;
-		}
-		else if(getGameModel().getPlayer2().getRightHand().CanCatchIt(a))
-		{
+			System.out.println("test3");
 			getGameModel().getPlayer2().getRightHand().addShape(a);
 			return true;
 		}
-		else if(getGameModel().getPlayer2().getLeftHand().CanCatchIt(a))
+		if(getGameModel().getPlayer2().getLeftHand().CanCatchIt(a))
 		{
+			System.out.println("test4");
 			getGameModel().getPlayer2().getLeftHand().addShape(a);
 			return true;
 		}

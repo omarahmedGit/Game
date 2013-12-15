@@ -1,4 +1,5 @@
 
 public interface PlayerObserver {
-	public void updateMovement(int newX);
+	public void updateByMouse(int x);
+	public void updateByKeyBoard(int x);
 }
