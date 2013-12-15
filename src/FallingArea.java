@@ -62,7 +62,6 @@ public class FallingArea implements Drawable,ShapesIterator{
 	public boolean checkPlayerCanCatchPlate(Shape a){
 		if(getGameModel().getPlayer1().getRightHand().CanCatchIt(a))
 		{
-			System.out.println("test1");
 			getGameModel().getPlayer1().getRightHand().addShape(a);
 			return true;
 		}
