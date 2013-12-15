@@ -39,9 +39,7 @@ public class LeftBelt extends Belt{
 		while(itr.hasNext())
 		{
 			Shape temp = itr.next();
-			
-			// move + check if falls
-			
+						
 			temp.setPostionX(temp.getPostionX()+getDirection());
 			
 			if(temp.getPostionX()>getEnd())

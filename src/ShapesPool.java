@@ -15,7 +15,7 @@ public class ShapesPool {
 		int max = ShapesFactory.getColorSize() - 1;
 		
 		for (int i = 0; i < max_shapes_number; i++) {
-			int random = (int) (Math.random() * max); // [0,color.length-1]
+			int random = (int) (Math.random() * max); 
 			pool.add(ShapesFactory.getShape(random));
 		}
 		
