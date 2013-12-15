@@ -20,13 +20,8 @@ public class GameControler implements Updator {
 
 	@Override
 	public void update() {
-<<<<<<< HEAD
 		gameModel.update();
-=======
-		// TODO Auto-generated method stub
-		gameModel.update();
-		
->>>>>>> c62b7c1c6b3e742832474aa8f99b9a2a14df0367
+
 	}
 
 }
