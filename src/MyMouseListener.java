@@ -9,10 +9,8 @@ public class MyMouseListener extends MouseAdapter{
 	}
 	@Override
 	public void mouseMoved(MouseEvent e){
-		int x=e.getX();
-		
+		int x=e.getX();		
 		gameView.mouseMoved(x);
-		System.out.println("mmmmmmmmmmmmmmmmm");
 	}
 
 }

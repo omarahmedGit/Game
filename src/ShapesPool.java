@@ -12,11 +12,9 @@ public class ShapesPool {
 	
 	private void generatePool()
 	{
-		int max = ShapesFactory.getColorSize() - 1;
-		
+		ShapesFactory factory = new ShapesFactory();
 		for (int i = 0; i < max_shapes_number; i++) {
-			int random = (int) (Math.random() * max); 
-			pool.add(ShapesFactory.getShape(random));
+			pool.add(factory.getShape());
 		}
 		
 	}

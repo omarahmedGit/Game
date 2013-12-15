@@ -18,7 +18,7 @@ public class GameModel implements ReadOnlyGameModel, UpdateGameModelInfc{
 		// el string 3lma mesh aktar mesh 3aref 7ewar el save da lessa 
 	}
 	public GameModel(Dimension screenSize) {
-		s=new Shape1(Color.black,50,50,50,50);
+		s=new Shape1(Color.black,50,50);
 		setDimension(screenSize);
 		int p1x=(screenSize.width/8);
 		int p2x=(screenSize.width/8)*6;
@@ -48,10 +48,11 @@ public class GameModel implements ReadOnlyGameModel, UpdateGameModelInfc{
 	public void setFallingArea(FallingArea fall){this.fall =fall;}
 	
 	public void updatePlayer1(int x){
-		System.out.println("test");
+		getPlayer1().updateByKeyBoard(x);
 		getPlayer1().updateMovement(x);
 	}
 	public void updatePlayer2(int x){
+		getPlayer2().updateByMouse(x);
 		getPlayer2().updateMovement(x);
 	}
 	public void update()
@@ -71,10 +72,6 @@ public class GameModel implements ReadOnlyGameModel, UpdateGameModelInfc{
 		drawingList.add(getLeftBelt());
 		drawingList.add(getFallingArea());
 		return drawingList;
-	}
-	@Override
-	public void updateShapePos(int x, int y) {
-		
 	}
 	
 	

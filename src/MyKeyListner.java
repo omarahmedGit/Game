@@ -9,15 +9,11 @@ public class MyKeyListner extends KeyAdapter{
 	}
 	@Override
 	public void keyPressed(KeyEvent e) {
-		// TODO Auto-generated method stub
 		int keyCode=e.getKeyCode();
 		if (keyCode==KeyEvent.VK_LEFT){
-			gameView.arrowPressed(1);
-			System.out.println("gggggg");
-			
+			gameView.arrowPressed(-5);			
 		}else if(keyCode==KeyEvent.VK_RIGHT){
-			gameView.arrowPressed(-1);
-			System.out.println("hhhhhhhhh");
+			gameView.arrowPressed(5);
 		}
 		else if (keyCode==KeyEvent.VK_ESCAPE){
 			

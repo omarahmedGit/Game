@@ -8,8 +8,8 @@ public class Shape implements Drawable , ShapeObserver{
 	private Color c = Color.BLACK;
 	private int posX;	// center X
 	private int posY;	// center Y
-	private int widthRadius; //width
-	private int heightRadius;
+	private static int widthRadius; //width
+	private static int heightRadius;
 	
 	private ShapeState falling;
 	private ShapeState onTheLine;
@@ -19,12 +19,12 @@ public class Shape implements Drawable , ShapeObserver{
 	public Shape(){
 		
 	}
-	public Shape(Color c,int x,int y,int widthradius, int heightradius) {
+	public Shape(Color c,int x,int y) {
 		setColor(c);
 		setPostionX(x);
 		setPostionY(y);
-		setWidthRedius(widthradius);
-		setHeightRedius(heightradius);
+		setWidthRedius(20);
+		setHeightRedius(20);
 		setFalling(new ShapeFalling(this));
 		setNotVisual(new ShapeNotVisual(this));
 		setWithPlayer(new ShapeWithPlayer(this));
