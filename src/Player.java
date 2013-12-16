@@ -59,6 +59,13 @@ public class Player implements Drawable , PlayerObserver ,Serializable {
 	public int getWidht()  {return 	width;}
 	public GameModel getGameModel(){return gameModel;}
 	
+	public boolean isHoopless()
+	{
+		if(getRightHand().getHandHeight()>getGameModel().getScreenSize().height/4) return true;
+		if(getLeftHand().getHandHeight()>getGameModel().getScreenSize().height/4) return true;
+		return false;
+	}
+	
 	public void updateByMouse(int x)
 	{
 		setPosX(x);

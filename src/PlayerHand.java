@@ -37,6 +37,7 @@ public class PlayerHand implements Drawable,ShapesIterator,Serializable{
 	}
 	
 	
+	
 	public boolean CanCatchIt(Shape a)
 	{
 		int shape_lower_bound = a.getPostionY() + a.getHeightRadius();
