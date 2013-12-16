@@ -10,16 +10,8 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.JMenu;
 import javax.swing.JMenuItem;
 import javax.swing.JButton;
-
-import sun.audio.AudioData;
-import sun.audio.AudioPlayer;
-import sun.audio.AudioStream;
-import sun.audio.ContinuousAudioDataStream;
-
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
-import java.io.FileInputStream;
-import java.io.IOException;
 
 
 public class MianWindow extends JFrame {
@@ -31,7 +23,6 @@ public class MianWindow extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-//					music();
 					Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 					MianWindow frame = new MianWindow(screenSize);
 					frame.setSize(screenSize);
@@ -43,23 +34,6 @@ public class MianWindow extends JFrame {
 			}
 		});
 	}
-	
-	public static void music()
-	{
-		AudioPlayer MGP = AudioPlayer.player;
-		AudioStream BGM ;
-		AudioData MD;
-		ContinuousAudioDataStream loop  = null;
-		try
-		{
-			BGM = new AudioStream(new FileInputStream("sound.wav"));
-			MD = BGM.getData();
-			loop = new ContinuousAudioDataStream(MD);
-		}catch(IOException error){}
-		MGP.start(loop);
-		
-	}
-	
 	/**
 	 * Create the frame.
 	 * @param screenSize 

@@ -9,8 +9,8 @@ public class Shape implements Drawable , ShapeObserver,Serializable{
 	private Color c = Color.BLACK;
 	private int posX;	// center X
 	private int posY;	// center Y
-	private static int widthRadius; //width
-	private static int heightRadius;
+	private int widthRadius; //width
+	private int heightRadius;
 	
 	private ShapeState falling;
 	private ShapeState onTheLine;
