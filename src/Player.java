@@ -1,12 +1,13 @@
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Image;
+import java.io.Serializable;
 import java.util.Iterator;
 
 import javax.swing.ImageIcon;
 
 
-public class Player implements Drawable , PlayerObserver {
+public class Player implements Drawable , PlayerObserver ,Serializable {
 	private PlayerHand righthand;
 	private PlayerHand lefthand;
 	private int posX; // top left X
@@ -16,7 +17,7 @@ public class Player implements Drawable , PlayerObserver {
 	private int height, width;
 	private String name;
 	private GameModel gameModel;
-	Image image;
+	private transient Image image;;
 	
 	public Player(int x,int y,int ID, GameModel gameModel) {
 		setID(ID);

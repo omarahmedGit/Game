@@ -1,6 +1,8 @@
+import java.io.Serializable;
 
 
-public class ShapeNotVisual implements ShapeState{
+
+public class ShapeNotVisual implements ShapeState,Serializable{
 	
 	Shape shape;
 	public ShapeNotVisual(Shape a) {

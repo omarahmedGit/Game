@@ -93,4 +93,9 @@ public class GameView extends JComponent implements Runnable{
 		gameControl.loadShape(loadClass);
 	}
 
+	public GameModel getGameModel() {
+		// TODO Auto-generated method stub
+		return (GameModel) gameModel;
+	}
+
 }

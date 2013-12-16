@@ -4,9 +4,9 @@ import java.io.IOException;
 import java.io.ObjectOutputStream;
 
 
-public class gameSaving {
+public class GameSaving {
 	
-	public gameSaving(){
+	public GameSaving(){
 		
 	}
 	public void saveGame(GameModel gameModel){
@@ -14,7 +14,9 @@ public class gameSaving {
 		
 		try {
 			ObjectOutputStream os = new ObjectOutputStream(new FileOutputStream(fileName));
-		} catch (IOException e) {
+			os.writeObject(gameModel);
+			os.close();
+			} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}

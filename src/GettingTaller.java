@@ -1,5 +1,7 @@
+import java.io.Serializable;
 
-public class GettingTaller implements BeltState {
+
+public class GettingTaller implements BeltState ,Serializable{
 	Belt belt;
 	public GettingTaller(Belt belt) {
 		this.belt= belt;

@@ -1,6 +1,8 @@
+import java.io.Serializable;
 
 
-public class ShapeFalling implements ShapeState{
+
+public class ShapeFalling implements ShapeState,Serializable{
 	
 	Shape shape;
 	public ShapeFalling(Shape a) {

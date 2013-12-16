@@ -1,12 +1,13 @@
 
 import java.awt.Graphics;
 import java.awt.Graphics2D;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Iterator;
 
 
 
-public class FallingArea implements Drawable,ShapesIterator{
+public class FallingArea implements Drawable,ShapesIterator,Serializable{
 	ArrayList<Shape> fallingarea;
 	GameModel game;
 	private node[] moves = new node[2];
@@ -93,7 +94,7 @@ public class FallingArea implements Drawable,ShapesIterator{
 		return fallingarea.iterator();
 	}
 	
-	public static class node
+	public static class node implements Serializable
 	{
 		int x,y;
 		public node(int x,int y) {

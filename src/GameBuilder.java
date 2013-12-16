@@ -24,10 +24,12 @@ public class GameBuilder {
 		System.out.println("bosssaa");
 		return gameBuilder;
 	}
-	public void startSavedGame(String s ,Dimension screenSize) {
-		GameModel model=new GameModel("ssss" ,screenSize);
-		GameControler controller =new GameControler((UpdateGameModelInfc) model ,screenSize);
-		GameView view =new GameView((ReadOnlyGameModel) model ,(Updator) controller);
+	public void startSavedGame(GameModel gameModel ,Dimension screenSize) {
+		GameModel model=new GameModel(gameModel ,screenSize);
+		UpdateGameModelInfc u=model;
+		GameControler controller =new GameControler((UpdateGameModelInfc) model,screenSize);
+		ReadOnlyGameModel readModel=model;
+		GameWindow view =new GameWindow(new GameView(readModel, controller));
 
 	}
 

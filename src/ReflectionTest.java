@@ -48,7 +48,7 @@ public class ReflectionTest {
 		arr1.add(cls);
 		for (int i = 0; i < arr1.size(); i++) {
 			try {
-				Object o = arr1.get(i).getConstructor(Color.class, int.class, int.class).newInstance(Color.black,1,2);
+				Object o = arr1.get(i).getConstructor(Color.class, int.class, int.class, int.class, int.class).newInstance(Color.black,1,2,3,4);
 				arr2.add((Shape) o);
 			} catch (InstantiationException | IllegalAccessException
 					| IllegalArgumentException | InvocationTargetException

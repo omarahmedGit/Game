@@ -2,11 +2,12 @@
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
+import java.io.Serializable;
 import java.util.Iterator;
 import java.util.Stack;
 
 
-public class PlayerHand implements Drawable,ShapesIterator{
+public class PlayerHand implements Drawable,ShapesIterator,Serializable{
 	private Stack<Shape> hand;
 	private Player player;
 	private int handHeight;

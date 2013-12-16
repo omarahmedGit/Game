@@ -1,8 +1,9 @@
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Iterator;
 
 
-public class RightBelt extends Belt{
+public class RightBelt extends Belt implements Serializable{
 
 	public RightBelt(int start, int end, GameModel game, int position) {
 		super(start, end, game);

@@ -4,10 +4,11 @@ import java.awt.BasicStroke;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Iterator;
 
-public class Belt implements ShapesIterator,Drawable{
+public class Belt implements ShapesIterator,Drawable,Serializable{
 	private int start, end, position;
 	ArrayList<Shape> line;
 	private int direction = 2;

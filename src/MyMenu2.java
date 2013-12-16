@@ -52,6 +52,12 @@ public class MyMenu2 extends JFrame {
 		button.setBounds(15, 81, 206, 47);
 		
 		JButton button_1 = new JButton("Save Game");
+		button_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				GameSaving gs=new GameSaving();
+				gs.saveGame(gameView.getGameModel());
+			}
+		});
 		button_1.setBounds(15, 146, 206, 47);
 		
 		JButton button_2 = new JButton("Load Shape");

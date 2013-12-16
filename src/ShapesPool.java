@@ -1,6 +1,7 @@
 
+import java.io.Serializable;
 import java.util.*;
-public class ShapesPool {
+public class ShapesPool implements Serializable{
 	private Queue<Shape> pool;
 	final int max_shapes_number = 100;
 	public ShapesPool() {

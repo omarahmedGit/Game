@@ -2,10 +2,11 @@
 
 import java.awt.Color;
 import java.awt.Dimension;
+import java.io.Serializable;
 import java.util.ArrayList;
 
 
-public class GameModel implements ReadOnlyGameModel, UpdateGameModelInfc{
+public class GameModel implements ReadOnlyGameModel, UpdateGameModelInfc,Serializable{
 	private Player player1;
 	private Player player2;
 	private Belt topRightBelt;
@@ -15,12 +16,23 @@ public class GameModel implements ReadOnlyGameModel, UpdateGameModelInfc{
 	private ShapesPool pool;
 	private FallingArea fall;
 	private Dimension gameDimension;
-	Shape s; // bassem test
-	public GameModel(String loadedGame, Dimension screenSize) { 
+//	Shape s; // bassem test
+	public GameModel(GameModel gameModel, Dimension screenSize) { 
 		// el string 3lma mesh aktar mesh 3aref 7ewar el save da lessa 
+		setDimension(screenSize);
+		int p1x=(screenSize.width/8);
+		int p2x=(screenSize.width/8)*6;
+		int py =(screenSize.height/4)*3;
+		setPlayer1(gameModel.getPlayer1());
+		setPlayer2(gameModel.getPlayer2());        
+		setRightBelt(gameModel.getTopRightBelt());
+		setLeftBelt(gameModel.getTopLeftBelt());
+		setLowerRightBelt(gameModel.getLowerRightBelt());
+		setLowerLeftBelt(gameModel.getLowerLeftBelt());
+		setShapesPool(gameModel.getShapesPool());
+		setFallingArea(gameModel.getFallingArea());
 	}
 	public GameModel(Dimension screenSize) {
-		s=new Shape1(Color.black,50,50);
 		setDimension(screenSize);
 		int p1x=(screenSize.width/8);
 		int p2x=(screenSize.width/8)*6;

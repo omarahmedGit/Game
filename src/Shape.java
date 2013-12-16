@@ -2,9 +2,10 @@
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
+import java.io.Serializable;
 
 
-public class Shape implements Drawable , ShapeObserver{
+public class Shape implements Drawable , ShapeObserver,Serializable{
 	private Color c = Color.BLACK;
 	private int posX;	// center X
 	private int posY;	// center Y

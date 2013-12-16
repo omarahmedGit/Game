@@ -1,6 +1,8 @@
+import java.io.Serializable;
 
 
-public class ShapeOnTheLine implements ShapeState{
+
+public class ShapeOnTheLine implements ShapeState,Serializable{
 	
 	Shape shape;
 	public ShapeOnTheLine(Shape a) {
