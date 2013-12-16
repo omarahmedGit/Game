@@ -10,8 +10,17 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.JMenu;
 import javax.swing.JMenuItem;
 import javax.swing.JButton;
+
+import sun.audio.AudioData;
+import sun.audio.AudioPlayer;
+import sun.audio.AudioStream;
+import sun.audio.ContinuousAudioDataStream;
+
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 
 
 public class MianWindow extends JFrame {
@@ -34,10 +43,13 @@ public class MianWindow extends JFrame {
 			}
 		});
 	}
+	
 	/**
 	 * Create the frame.
 	 * @param screenSize 
 	 */
+	
+	
 	public MianWindow(final Dimension screenSize) {
 		builder =new GameBuilder();
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
