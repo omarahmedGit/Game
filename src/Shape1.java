@@ -12,8 +12,8 @@ public class Shape1 extends Shape implements Drawable{
 	}
 	public Shape1(Color c, int x, int y) {
 		super(c, x, y);
-		setWidthRedius(40);
-		setHeightRedius(40);
+		setWidthRedius(35);
+		setHeightRedius(35);
 	}
 	@Override
 	public void drawShape(Graphics g) {

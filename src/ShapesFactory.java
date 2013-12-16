@@ -10,6 +10,8 @@ public class ShapesFactory {
 	public ShapesFactory() {
 		shapeType.add(Shape2.class);
 		shapeType.add(Shape1.class);
+		shapeType.add(Shape1.class);
+		shapeType.add(Shape1.class);
 	}
 	
 	public int getClassListLength() {return shapeType.size();}
