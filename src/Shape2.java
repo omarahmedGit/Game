@@ -4,7 +4,7 @@ import java.awt.Graphics;
 import java.awt.Graphics2D;
 
 
-public class Shape2 extends Shape{
+public class Shape2 extends Shape implements Drawable{
 	public Shape2(){
 	}
 	public Shape2(Color c, int x, int y, int widthradius, int hightradius) {

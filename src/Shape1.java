@@ -5,7 +5,7 @@ import java.awt.Graphics2D;
 import java.awt.Rectangle;
 
 
-public class Shape1 extends Shape{
+public class Shape1 extends Shape implements Drawable{
 	Rectangle r;
 	public Shape1(){
 		System.out.println("shape1");

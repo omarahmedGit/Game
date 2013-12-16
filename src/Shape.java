@@ -58,8 +58,8 @@ public class Shape implements Drawable , ShapeObserver{
 	
 	@Override
 	public void drawShape(Graphics g) {
-		g.setColor(getColor());
-		g.fillOval(getPostionX()-getWidthRadius(), getPostionY()-getHeightRadius(), getWidthRadius()*2, getHeightRadius()*2);
+//		g.setColor(getColor());
+//		g.fillOval(getPostionX()-getWidthRadius(), getPostionY()-getHeightRadius(), getWidthRadius()*2, getHeightRadius()*2);
 	}
 	@Override
 	public void updateShape(int newX) {

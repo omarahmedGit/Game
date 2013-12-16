@@ -24,7 +24,7 @@ public class ShapesFactory {
 		int x = (int)(Math.random()*(getClassListLength()-1));
 		int y = (int)(Math.random()*(color.length-1));
 		try {
-			Shape o = (Shape)shapeType.get(x).getConstructor(Color.class, int.class, int.class, int.class, int.class).newInstance(color[y],0,0);
+			Shape o = (Shape)shapeType.get(x).getConstructor(Color.class, int.class, int.class).newInstance(color[y],0,0);
 			return  o;
 		} catch (InstantiationException | IllegalAccessException
 				| IllegalArgumentException | InvocationTargetException
