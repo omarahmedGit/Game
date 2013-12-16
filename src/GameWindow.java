@@ -6,16 +6,25 @@ import javax.swing.JFrame;
 
 public class GameWindow extends JFrame{
 	
+	private static GameWindow gameWindow;
+	private GameWindow(){
 
-
-	public GameWindow(GameView gameView) {
-		// TODO Auto-generated constructor stub
-		this.add(gameView);
-		Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
-		this.setSize(screenSize);
-		this.setLocationRelativeTo(null);
-		this.setUndecorated(true);
-		this.setVisible(true);
+	}
+	public static GameWindow makeGameWindow(GameView gameView){
+			System.out.println("bassem");
+			gameWindow=new GameWindow();
+			gameWindow.add(gameView);
+			Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+			gameWindow.setSize(screenSize);
+			gameWindow.setLocationRelativeTo(null);
+			gameWindow.setUndecorated(true);
+			gameWindow.setVisible(true);
+//		}
+//		System.out.println("bosssaa");
+		return gameWindow;
 	}
 
+	public static void closeGameWindow(){
+		gameWindow.dispose();
+	}
 }

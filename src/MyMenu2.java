@@ -5,6 +5,7 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+import javax.swing.text.html.MinimalHTMLWriter;
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
 import javax.swing.JButton;
@@ -23,7 +24,7 @@ public class MyMenu2 extends JFrame {
 	/**
 	 * Launch the application.
 	 */
-	public MyMenu2(GameView GV) {
+	public MyMenu2(GameView GV ) {
 		gameView=GV;
 		isVisible=true;
 		this.setBackground(Color.RED);
@@ -43,8 +44,6 @@ public class MyMenu2 extends JFrame {
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				setVisible(false);
-				gameView.resume();
-				dispose();
 			}
 		});
 		
@@ -73,8 +72,7 @@ public class MyMenu2 extends JFrame {
 		button_3.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				setVisible(false);
-				gameView.resume();
-				dispose();
+				GameWindow.closeGameWindow();
 			}
 		});
 		contentPane.setLayout(null);
