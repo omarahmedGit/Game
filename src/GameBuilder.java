@@ -28,6 +28,7 @@ public class GameBuilder {
 	}
 	public static void startSavedGame(GameModel gameModel ,Dimension screenSize) {
 		GameModel model=new GameModel(gameModel ,screenSize);
+		gameModel.resetImages();
 		UpdateGameModelInfc u=model;
 		GameControler controller =new GameControler((UpdateGameModelInfc) model,screenSize);
 		ReadOnlyGameModel readModel=model;

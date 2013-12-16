@@ -88,6 +88,10 @@ public class GameModel implements ReadOnlyGameModel, UpdateGameModelInfc,Seriali
 		
 		getFallingArea().getIntoAction();
 	}
+	public void resetImages(){
+		player1.resetImage();
+		player2.resetImage();
+	}
 	@Override
 	public ArrayList<Drawable> getShapesArray() {
 		ArrayList<Drawable> drawingList=new ArrayList<Drawable>();

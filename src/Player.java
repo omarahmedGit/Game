@@ -126,4 +126,10 @@ public class Player implements Drawable , PlayerObserver ,Serializable {
 		getRightHand().drawShape(g);
 		getLeftHand().drawShape(g);
 	}
+
+	public void resetImage() {
+		// TODO Auto-generated method stub
+		ImageIcon i=new ImageIcon("p"+id+".png");
+		image=i.getImage();
+	}
 }
