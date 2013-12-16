@@ -24,8 +24,8 @@ public class Shape implements Drawable , ShapeObserver,Serializable{
 		setColor(c);
 		setPostionX(x);
 		setPostionY(y);
-		setWidthRedius(20);
-		setHeightRedius(20);
+//		setWidthRedius(20);
+//		setHeightRedius(20);
 		setFalling(new ShapeFalling(this));
 		setNotVisual(new ShapeNotVisual(this));
 		setWithPlayer(new ShapeWithPlayer(this));
