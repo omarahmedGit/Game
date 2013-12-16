@@ -16,7 +16,7 @@ public class Shape1 extends Shape{
 	@Override
 	public void drawShape(Graphics g) {
 		g.setColor(Color.black);
-		g.drawRect(this.getPostionX(),this.getPostionY() ,this.getWidthRadius() ,this.getHeightRadius());
+		g.drawOval(this.getPostionX(),this.getPostionY() ,this.getWidthRadius() ,this.getHeightRadius());
 	}
 
 }
