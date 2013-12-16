@@ -10,6 +10,8 @@ public class GameModel implements ReadOnlyGameModel, UpdateGameModelInfc{
 	private Player player2;
 	private Belt topRightBelt;
 	private Belt topLeftBelt;
+	private Belt lowerRightBelt;
+	private Belt lowerLeftBelt;
 	private ShapesPool pool;
 	private FallingArea fall;
 	private Dimension gameDimension;
@@ -25,8 +27,10 @@ public class GameModel implements ReadOnlyGameModel, UpdateGameModelInfc{
 		int py =(screenSize.height/4)*3;
 		setPlayer1(new Player(p1x,py,1,this));
 		setPlayer2(new Player(p2x,py,2,this));        
-		setRightBelt(new RightBelt(getScreenSize().width,(getScreenSize().width*3)/4, this));
-		setLeftBelt(new LeftBelt(0,getScreenSize().width/4, this));
+		setRightBelt(new RightBelt(getScreenSize().width,(getScreenSize().width*3)/4, this,getScreenSize().height/8));
+		setLeftBelt(new LeftBelt(0,getScreenSize().width/4, this,getScreenSize().height/8));
+		setLowerRightBelt(new RightBelt(getScreenSize().width,(getScreenSize().width*7)/8, this,getScreenSize().height/4));
+		setLowerLeftBelt(new LeftBelt(0,getScreenSize().width/6, this,getScreenSize().height/4));
 		setShapesPool(new ShapesPool());
 		setFallingArea(new FallingArea(this));
 	}
@@ -34,8 +38,10 @@ public class GameModel implements ReadOnlyGameModel, UpdateGameModelInfc{
 	public Dimension getScreenSize() {return gameDimension;}
 	public Player getPlayer1() {return player1;}
 	public Player getPlayer2() {return player2;}
-	public Belt	getRightBelt() {return topRightBelt;}
-	public Belt	getLeftBelt()  {return  topLeftBelt;}
+	public Belt	getTopRightBelt() {return topRightBelt;}
+	public Belt	getTopLeftBelt()  {return  topLeftBelt;}
+	public Belt getLowerRightBelt() {return lowerRightBelt;}
+	public Belt getLowerLeftBelt() {return lowerLeftBelt;}
 	public ShapesPool getShapesPool() {return pool;}
 	public FallingArea getFallingArea() {return fall;}
 	
@@ -46,6 +52,9 @@ public class GameModel implements ReadOnlyGameModel, UpdateGameModelInfc{
 	public void setLeftBelt(Belt belt) {topLeftBelt = belt;}
 	public void setShapesPool(ShapesPool pool) {this.pool = pool;}
 	public void setFallingArea(FallingArea fall){this.fall =fall;}
+	public void setLowerRightBelt(Belt belt) {lowerRightBelt = belt;}
+	public void setLowerLeftBelt(Belt belt) {lowerLeftBelt = belt;}
+	
 	
 	public void updatePlayer1(int x){
 		getPlayer1().updateByKeyBoard(x);
@@ -55,10 +64,16 @@ public class GameModel implements ReadOnlyGameModel, UpdateGameModelInfc{
 	}
 	public void update()
 	{
-		getRightBelt().addShapesToBelt();
-		getLeftBelt().addShapesToBelt();
-		getRightBelt().moveShapes();
-		getLeftBelt().moveShapes();
+		getTopRightBelt().addShapesToBelt();
+		getTopLeftBelt().addShapesToBelt();
+		getLowerRightBelt().addShapesToBelt();
+		getLowerLeftBelt().addShapesToBelt();
+		
+		getTopRightBelt().moveShapes();
+		getTopLeftBelt().moveShapes();
+		getLowerRightBelt().moveShapes();
+		getLowerLeftBelt().moveShapes();
+		
 		getFallingArea().getIntoAction();
 	}
 	@Override
@@ -66,8 +81,10 @@ public class GameModel implements ReadOnlyGameModel, UpdateGameModelInfc{
 		ArrayList<Drawable> drawingList=new ArrayList<Drawable>();
 		drawingList.add(getPlayer1());
 		drawingList.add(getPlayer2());
-		drawingList.add(getRightBelt());
-		drawingList.add(getLeftBelt());
+		drawingList.add(getTopRightBelt());
+		drawingList.add(getTopLeftBelt());
+		drawingList.add(getLowerLeftBelt());
+		drawingList.add(getLowerRightBelt());
 		drawingList.add(getFallingArea());
 		return drawingList;
 	}

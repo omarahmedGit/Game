@@ -4,9 +4,10 @@ import java.util.Iterator;
 
 public class RightBelt extends Belt{
 
-	public RightBelt(int start, int end, GameModel game) {
+	public RightBelt(int start, int end, GameModel game, int position) {
 		super(start, end, game);
 		setDirection(-1*getDirection());
+		setPosition(position);
 	}
 	
 	public void addShapesToBelt()

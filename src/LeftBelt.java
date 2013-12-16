@@ -4,8 +4,9 @@ import java.util.Iterator;
 
 public class LeftBelt extends Belt{
 
-	public LeftBelt(int start, int end, GameModel game) {
+	public LeftBelt(int start, int end, GameModel game, int position) {
 		super(start, end, game);
+		setPosition(position);
 	}
 	
 	public void addShapesToBelt()
