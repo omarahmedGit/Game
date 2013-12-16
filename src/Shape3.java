@@ -9,12 +9,12 @@ public class Shape3 extends Shape implements Drawable{
 	}
 	public Shape3(Color c, int x, int y) {
 		super(c, x, y);
-		setWidthRedius(40);
-		setHeightRedius(40);
+		setWidthRedius(20);
+		setHeightRedius(20);
 	}
 	@Override
 	public void drawShape(Graphics g) {
 		g.setColor(getColor());
-		g.fillRect(this.getPostionX(),this.getPostionY() ,this.getWidthRadius() ,this.getHeightRadius());	
+		g.fillRect(this.getPostionX()-getWidthRadius(),this.getPostionY()-getHeightRadius() ,this.getWidthRadius()*2 ,this.getHeightRadius()*2);	
 	}
 }

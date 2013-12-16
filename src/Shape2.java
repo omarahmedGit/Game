@@ -15,6 +15,6 @@ public class Shape2 extends Shape implements Drawable{
 	@Override
 	public void drawShape(Graphics g) {
 		g.setColor(getColor());
-		g.fillRect(this.getPostionX(),this.getPostionY() ,this.getWidthRadius() ,this.getHeightRadius());	
+		g.fillRect(this.getPostionX()-getWidthRadius(),this.getPostionY()-getHeightRadius() ,this.getWidthRadius()*2 ,this.getHeightRadius()*2);	
 	}
 }

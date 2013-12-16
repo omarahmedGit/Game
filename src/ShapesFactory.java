@@ -8,8 +8,8 @@ public class ShapesFactory {
 	private static Color[] color = {Color.RED,Color.BLACK,Color.GREEN,Color.BLUE};
 	private static ArrayList<Class> shapeType = new ArrayList<Class>();
 	public ShapesFactory() {
-		shapeType.add(Shape1.class);
 		shapeType.add(Shape2.class);
+		shapeType.add(Shape1.class);
 	}
 	
 	public int getClassListLength() {return shapeType.size();}
