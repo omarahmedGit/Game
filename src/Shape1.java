@@ -7,8 +7,8 @@ import java.awt.Rectangle;
 
 public class Shape1 extends Shape implements Drawable{
 	Rectangle r;
-	static int w=35;
-	static int l=35;
+	static int w=30;
+	static int l=30;
 	public Shape1(){
 		System.out.println("shape1");
 	}

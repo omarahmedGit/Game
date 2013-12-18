@@ -61,8 +61,8 @@ public class Player implements Drawable , PlayerObserver ,Serializable {
 	
 	public boolean isHoopless()
 	{
-		if(getRightHand().getHandHeight()>getGameModel().getScreenSize().height/4) return true;
-		if(getLeftHand().getHandHeight()>getGameModel().getScreenSize().height/4) return true;
+		if(getRightHand().getHandHeight()<getGameModel().getScreenSize().height/4) return true;
+		if(getLeftHand().getHandHeight()<getGameModel().getScreenSize().height/4) return true;
 		return false;
 	}
 	

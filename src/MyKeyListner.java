@@ -16,7 +16,7 @@ public class MyKeyListner extends KeyAdapter{
 			gameView.arrowPressed(10);
 		}
 		else if (keyCode==KeyEvent.VK_ESCAPE){
-			gameView.ShowMenu();
+			gameView.pauseGame();
 		}
 	}
 

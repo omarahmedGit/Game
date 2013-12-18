@@ -1,7 +1,10 @@
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.ObjectInputStream;
+
+import javax.swing.JFileChooser;
 
 
 public class GameLoading {
@@ -9,8 +12,10 @@ public class GameLoading {
 		
 	}
 	public GameModel loadGame(){
-		
-		String fileName="data.bin";
+        File directory = new File("Game Folder\\Saved Games");
+        JFileChooser fileChooser = new JFileChooser(directory);
+        fileChooser.showOpenDialog(null);
+		String fileName=fileChooser.getSelectedFile().getAbsolutePath();
 		try {
 			ObjectInputStream is=new ObjectInputStream(new FileInputStream(fileName));
 			GameModel gameModel=(GameModel) is.readObject();

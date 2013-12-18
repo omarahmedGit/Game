@@ -4,8 +4,10 @@ import java.awt.Dimension;
 
 public class GameControler implements Updator {
 	UpdateGameModelInfc gameModel;
+	private int maxScore;
 	public GameControler(UpdateGameModelInfc model, Dimension screenSize) {
 		gameModel=model;
+		maxScore=2;
 	}
 
 	@Override
@@ -23,11 +25,30 @@ public class GameControler implements Updator {
 		gameModel.update();
 	}
 
+
+
 	@Override
-	public void loadShape(Class loadClass) {
+	public boolean checkWinningPlayer1() {
 		// TODO Auto-generated method stub
-		gameModel.addShape(loadClass);
-		
+		if (gameModel.getplaye1Score() >=maxScore){
+			return true;
+		}
+		return false;
+	}
+
+	@Override
+	public boolean checkWinningPlayer2() {
+		// TODO Auto-generated method stub
+		if (gameModel.getplaye2Score() >=maxScore){
+			return true;
+		}
+		return false;
+	}
+
+	@Override
+	public int getMaxScore() {
+		// TODO Auto-generated method stub
+		return maxScore;
 	}
 
 }

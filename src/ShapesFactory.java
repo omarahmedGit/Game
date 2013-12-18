@@ -8,10 +8,16 @@ public class ShapesFactory {
 	private static Color[] color = {Color.RED,Color.BLACK,Color.GREEN,Color.BLUE};
 	private static ArrayList<Class> shapeType = new ArrayList<Class>();
 	public ShapesFactory() {
-		shapeType.add(Shape2.class);
-		shapeType.add(Shape1.class);
-		shapeType.add(Shape1.class);
-		shapeType.add(Shape1.class);
+//		shapeType.add(Shape2.class);
+//		shapeType.add(Shape1.class);
+//		shapeType.add(Shape1.class);
+//		shapeType.add(Shape1.class);
+		ShapesLoader.makeshapesLoader();
+		ArrayList<Class> arr=ShapesLoader.loadClasses();
+		for (int i = 0; i < arr.size(); i++) {
+			shapeType.add(arr.get(i));
+		}
+		
 	}
 	
 	public int getClassListLength() {return shapeType.size();}
@@ -23,7 +29,7 @@ public class ShapesFactory {
 	}
 	
 	public Shape getShape(){
-		int x = (int)(Math.random()*(getClassListLength()-1));
+		int x = (int)(Math.random()*(getClassListLength()));
 		int y = (int)(Math.random()*(color.length-1));
 		try {
 			Shape o = (Shape)shapeType.get(x).getConstructor(Color.class, int.class, int.class).newInstance(color[y],0,0);

@@ -16,7 +16,6 @@ public class GameModel implements ReadOnlyGameModel, UpdateGameModelInfc,Seriali
 	private ShapesPool pool;
 	private FallingArea fall;
 	private Dimension gameDimension;
-//	Shape s; // bassem test
 	public GameModel(GameModel gameModel, Dimension screenSize) { 
 		// el string 3lma mesh aktar mesh 3aref 7ewar el save da lessa 
 		setDimension(screenSize);
@@ -92,6 +91,12 @@ public class GameModel implements ReadOnlyGameModel, UpdateGameModelInfc,Seriali
 		player1.resetImage();
 		player2.resetImage();
 	}
+	public boolean playerOneLose(){
+		return player1.isHoopless();
+	}
+	public boolean playertwoLose(){
+		return player2.isHoopless();
+	}
 	@Override
 	public ArrayList<Drawable> getShapesArray() {
 		ArrayList<Drawable> drawingList=new ArrayList<Drawable>();
@@ -104,10 +109,32 @@ public class GameModel implements ReadOnlyGameModel, UpdateGameModelInfc,Seriali
 		drawingList.add(getFallingArea());
 		return drawingList;
 	}
+
 	@Override
-	public void addShape(Class loadClass) {
+	public Dimension getScreenDim() {
 		// TODO Auto-generated method stub
-		pool.addNewShape(loadClass);
+		return gameDimension;
+	}
+
+	@Override
+	public int getplaye1Score() {
+		// TODO Auto-generated method stub
+		return player1.getScore();
+	}
+	@Override
+	public int getplaye2Score() {
+		// TODO Auto-generated method stub
+		return player2.getScore();
+	}
+	@Override
+	public int getPlayer1Score() {
+		// TODO Auto-generated method stub
+		return player1.getScore();
+	}
+	@Override
+	public int getPlayer2Score() {
+		// TODO Auto-generated method stub
+		return player2.getScore();
 	}
 	
 	

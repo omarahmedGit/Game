@@ -5,8 +5,8 @@ import java.awt.Graphics2D;
 
 
 public class Shape3 extends Shape implements Drawable{
-	static int w=25;
-	static int l=25;
+	static int w=30;
+	static int l=30;
 	public Shape3(){
 	}
 	public Shape3(Color c, int x, int y) {

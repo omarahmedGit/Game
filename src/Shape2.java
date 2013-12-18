@@ -6,7 +6,7 @@ import java.awt.Graphics2D;
 
 public class Shape2 extends Shape implements Drawable{
 	static int w=20;
-	static int l=20;
+	static int l=40;
 	public Shape2(){
 	}
 	public Shape2(Color c, int x, int y) {
